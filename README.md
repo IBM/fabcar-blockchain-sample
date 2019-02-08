@@ -326,7 +326,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 <br>
 
 * #### Create an application admin
-  - Go to the <b>Nodes</b> tab on the left bar, and under <b>Certifacte Authorities</b>, choose your organization CA, <b>Org1 CA<b>
+  - Go to the <b>Nodes</b> tab on the left bar, and under <b>Certifacte Authorities</b>, choose your organization CA, <b>Org1 CA</b>
   - Click on <b>Register user</b>
   - Give an <b>Enroll ID</b> and <b>Enroll Secret</b> to administer your application users, `app-admin` and `app-adminpw`
   - Choose `client` as <b>Type</b> and any organization for affiliation.  We can pick `org1` to be consistent
