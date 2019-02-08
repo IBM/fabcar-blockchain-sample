@@ -27,11 +27,11 @@ export default {
     }
   },
   mounted () {
-    this.getPosts(),
+    this.load(),
     this.selectedOption = this.value
   },
   methods: {
-    async getPosts () {
+    async load () {
       const apiResponse = await PostsService.queryAllCars()
       this.carKeys = apiResponse.data
     },

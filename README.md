@@ -228,7 +228,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - On the <b>Nodes</b> page, click <b>Add orderer</b>.
   - Click <b>IBM Cloud</b> and proceed with <b>Next</b>.
   - Give your peer a <b>Display name</b> of `Orderer`.
-  - On the next screen, select `Orderer CA` as your <b>Certificate Authority</b>. Then, give the <b>Enroll ID</b> and <b>Enroll secret</b> for the peer identity that you created for your orderer, `ordereradmin`, and `ordereradminpw`. Then, select the <b>Administrator Certificate (from MSP)</b>, `Orderer MSP`, from the drop-down list and click <b>Next</b>.
+  - On the next screen, select `Orderer CA` as your <b>Certificate Authority</b>. Then, give the <b>Enroll ID</b> and <b>Enroll secret</b> for the peer identity that you created for your orderer, `orderer1`, and `orderer1pw`. Then, select the <b>Administrator Certificate (from MSP)</b>, `Orderer MSP`, from the drop-down list and click <b>Next</b>.
   - Give the <b>TLS Enroll ID</b>, `admin`, and <b>TLS Enroll secret</b>, `adminpw`, the same values are the Enroll ID and Enroll secret that you gave when creating the CA.  Leave the <b>TLS CSR hostname</b> blank.
   - Next, choose the <b>Client TLS Certificate Authority</b> as `Orderer CA`. Leave the <b>Client TLS Enroll ID</b> and <b>Client Enroll Secret</b> blank.
   - The last side panel will ask to <b>Associate an identity</b> and make it the admin of your peer. Select your peer admin identity `Orderer Admin`.
@@ -258,7 +258,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 * #### Create the channel
   - Navigate to the <b>Channels</b> tab in the left navigation
   - Click <b>Create channel</b>.
-  - Give the channel a name, `channel1`.
+  - Give the channel a name, `mychannel`.
   - Select the orderer you created, `Orderer` from the orderers drop-down list.
   - Select the MSP identifying the organization of the channel creator from the drop-down list. This should be `Org1 MSP (org1msp)`.
   - Associate available identity as `Org1 Admin`.
@@ -275,7 +275,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 * #### Join your peer to the channel
   - Click <b>Join channel</b> to launch the side panels.
   - Select your `Orderer` and click <b>Next</b>.
-  - Enter the name of the channel you just created `channel1` and click <b>Next</b>.
+  - Enter the name of the channel you just created `mychannel` and click <b>Next</b>.
   - Select which peers you want to join the channel, click `Peer Org1` .
   - Click Submit.
 
@@ -302,7 +302,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 * #### Instantiate smart contract
   - On the smart contracts tab, find the smart contract from the list installed on your peers and click <b>Instantiate</b> from the overflow menu on the right side of the row.
-  - On the side panel that opens, select the channel, `channel1` to instantiate the smart contract on, and select the orderer,  `Orderer` where the channel resides. Click <b>Next</b>.
+  - On the side panel that opens, select the channel, `mychannel` to instantiate the smart contract on, and select the orderer,  `Orderer` where the channel resides. Click <b>Next</b>.
   - Select the organization members to be included in the policy, which would be `org1msp`
 
 <br>
@@ -312,6 +312,52 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 <br>
 
 ## 6. Connect application to the network
+
+* #### Connect with sdk through connection profile
+  - Under the Instantiated Smart Contract, click on `Connect with SDK` from the overflow menu on the right side of the row
+  - Choose from the dropdown for <b>MSP for connection</b>, `org1msp`
+  - Choose from <b>Certificate Authority</b> dropdown, `Org1 CA`
+  - Download the connection profile by scrolling down and clicking <b>Download Connection Profile</b>
+
+<br>
+<p align="center">
+  <img src="docs/doc-gifs/connect-with-sdk.gif">
+</p>
+<br>
+
+* #### Create an application admin
+  - Go to the <b>Nodes</b> tab on the left bar, and under <b>Certifacte Authorities</b>, choose your organization CA, <b>Org1 CA<b>
+  - Click on <b>Register user</b>
+  - Give an <b>Enroll ID</b> and <b>Enroll Secret</b> to administer your application users, `app-admin` and `app-adminpw`
+  - Choose `client` as <b>Type</b> and any organization for affiliation.  We can pick `org1` to be consistent
+  - You can leave the <b>Maximum enrollments</b> blank
+  - Under <b>Attributes</b>, click on <b>Add attribute</b>.  Give attribute as `hf.Registrar.Roles` = `*`.  This will allow this identity to act as registrar and issues identities for our app
+
+<br>
+<p align="center">
+  <img src="docs/doc-gifs/register-app-admin.gif">
+</p>
+<br>
+
+
+* #### Update application connection
+  - Copy the connection profile you downloaded into [fabric folder](web-app/server/src/fabric)
+  - Update the [network.js](web-app/server/src/fabric/network.js#L9) with:
+    - The connection json file name you downloaded
+    - The <b>enroll id</b> and <b>enroll secret</b> for your app admin, which we earlier provided as `app-admin` and `app-adminpw`
+    - The orgMSP ID, which we provided as `org1msp`
+    - The caName, which can be found in your connection json file under "organization" -> "org1msp" -> certificateAuthorities". This would be like an IP address and a port.
+
+> the current default setup is to connect to a local fabric instance from VS Code
+
+```js
+var connection_file = 'mychannel_fabcar_profile.json';
+var appAdmin = 'app-admin';
+var appAdminSecret = 'app-adminpw';
+var orgMSPID = 'org1msp';
+var caName = '169.46.208.151:30404';
+var userName = 'user1';
+```
 
 
 ## 7. Run the application
@@ -345,6 +391,14 @@ You can find the app running at http://localhost:8080/
 <br>
 <p align="center">
   <img src="docs/doc-gifs/application.gif">
+</p>
+<br>
+
+You can go to the IBM Blockchain Platform v2 console to monitor your users and get information on your channel including the blocks added.
+
+<br>
+<p align="center">
+  <img src="docs/doc-gifs/channel-blocks.gif">
 </p>
 <br>
 

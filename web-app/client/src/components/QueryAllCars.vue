@@ -18,10 +18,10 @@ export default {
     }
   },
   mounted () {
-    this.getPosts()
+    this.load()
   },
   methods: {
-    async getPosts () {
+    async load () {
       const apiResponse = await PostsService.queryAllCars()
       this.response = apiResponse.data
     }
