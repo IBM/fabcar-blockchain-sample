@@ -403,6 +403,25 @@ You can go to the IBM Blockchain Platform v2 console to monitor your users and g
 <br>
 
 
+## Troubleshooting
+
+* If you receive the following error on submitting transaction:
+`error: [Client.js]: Channel not found for name mychannel`
+
+  Make sure your connection json file has channels defined like this, or you can manually add the following json and updated the IP address and ports manually:
+  ```
+  "channels": {
+          "mychannel": {
+              "orderers": [
+                  "169.46.208.151:32078"
+              ],
+              "peers": {
+                  "169.46.208.151:31017": {}
+              }
+          }
+      },
+  ```
+
 
 ## Links
 * [Hyperledger Fabric Docs](http://hyperledger-fabric.readthedocs.io/en/latest/)
