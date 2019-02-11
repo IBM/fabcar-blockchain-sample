@@ -28,7 +28,7 @@ The developer uses the IBM Blockchain Platform Extension for VS Code to:
 
 
 # Included components
-*	[IBM Blockchain Platform 2.0](https://console.test.cloud.ibm.com/docs/services/blockchain?topic=blockchain-ibp-console-overview#ibp-console-overview) gives you total control of your blockchain network with a user interface that can simplify and accelerate your journey to deploy and manage blockchain components on the IBM Cloud Kubernetes Service.
+*	[IBM Blockchain Platform 2.0](https://console.bluemix.net/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) gives you total control of your blockchain network with a user interface that can simplify and accelerate your journey to deploy and manage blockchain components on the IBM Cloud Kubernetes Service.
 *	[IBM Cloud Kubernetes Service](https://www.ibm.com/cloud/container-service) gcreates a cluster of compute hosts and deploys highly available containers. A Kubernetes cluster lets you securely manage the resources that you need to quickly deploy, update, and scale applications.
 * [IBM Blockchain Platform Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform) is designed to assist users in developing, testing, and deploying smart contracts -- including connecting to Hyperledger Fabric environments.
 
@@ -100,7 +100,7 @@ Now, we will start creating our Hyperledger Fabric network on the IBM Cloud.
 </p>
 <br>
 
-* Create the [IBM Blockchain Platform 2.0](https://console.bluemix.net/catalog/infrastructure/containers-kubernetes) service on the IBM Cloud.  You can find the service in the `Catalog`, and give a name.
+* Create the [IBM Blockchain Platform 2.0](https://console.bluemix.net/catalog/services/blockchain/) service on the IBM Cloud.  You can find the service in the `Catalog`, and give a name.
 
 <br>
 <p align="center">
@@ -126,7 +126,7 @@ Now, we will start creating our Hyperledger Fabric network on the IBM Cloud.
 
 ## 4. Build a network
 
-We will build a network as provided by the IBM Blockchain Platform [documentation](https://console.test.cloud.ibm.com/docs/services/blockchain/blockchain?topic=blockchain-ibp-console-build-network#ibp-console-build-network).  This will include creating a channel with a single peer organization with its own MSP and CA (Certificate Authority), and an orderer organization with its own MSP and CA. We will create the respective identities to deploy peers and operate nodes.
+We will build a network as provided by the IBM Blockchain Platform [documentation](https://console.bluemix.net/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network).  This will include creating a channel with a single peer organization with its own MSP and CA (Certificate Authority), and an orderer organization with its own MSP and CA. We will create the respective identities to deploy peers and operate nodes.
 
 ### Create your organization and your entry point to your blockchain
 
