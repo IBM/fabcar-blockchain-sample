@@ -12,7 +12,7 @@ var appAdminSecret = 'adminpw';
 var orgMSPID = 'Org1MSP';
 var caName = 'ca.example.com';
 var userName = 'user1';
-var gatewayDiscovery = { enabled: false }
+var gatewayDiscovery = { enabled: false };
 
 const ccpPath = path.resolve(__dirname, connection_file);
 const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
@@ -85,7 +85,7 @@ exports.registerUser = async function() {
 
         // Create a new gateway for connecting to our peer node.
         const gateway = new Gateway();
-        await gateway.connect(ccp, { wallet, identity: appAdmin, discovery: { enabled: true, asLocalhost: false } });
+        await gateway.connect(ccp, { wallet, identity: appAdmin, discovery: gatewayDiscovery });
 
         // Get the CA client object from the gateway for interacting with the CA.
         const ca = gateway.getClient().getCertificateAuthority();
@@ -129,7 +129,7 @@ exports.createCar = async function(key, make, model, color, owner) {
 
         // Create a new gateway for connecting to our peer node.
         const gateway = new Gateway();
-        await gateway.connect(ccp, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: false } });
+        await gateway.connect(ccp, { wallet, identity: userName, discovery: gatewayDiscovery });
 
         // Get the network (channel) our contract is deployed to.
         const network = await gateway.getNetwork('mychannel');
@@ -177,7 +177,7 @@ exports.changeCarOwner = async function(key, newOwner) {
 
         // Create a new gateway for connecting to our peer node.
         const gateway = new Gateway();
-        await gateway.connect(ccp, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: false } });
+        await gateway.connect(ccp, { wallet, identity: userName, discovery: gatewayDiscovery });
 
         // Get the network (channel) our contract is deployed to.
         const network = await gateway.getNetwork('mychannel');
@@ -225,7 +225,7 @@ exports.queryAllCars = async function() {
 
         // Create a new gateway for connecting to our peer node.
         const gateway = new Gateway();
-        await gateway.connect(ccp, { wallet, identity: userName, discovery: { enabled: true, asLocalhost: false } });
+        await gateway.connect(ccp, { wallet, identity: userName, discovery: gatewayDiscovery });
 
         // Get the network (channel) our contract is deployed to.
         const network = await gateway.getNetwork('mychannel');

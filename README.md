@@ -145,8 +145,8 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 * #### Use your CA to register identities
   - Select the <b>Org 1 CA</b> Certificate Authority that we created
-  - First, we will register an admin for our organization "org1". Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `org1admin`, and <b>Enroll Secret</b> of `org1adminpw`.  Click <b>Next</b>.  Set the <b>Type</b>for this identity as `client` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank
-  - We will repeat the process to create an identity of the peer. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `peer1`, and <b>Enroll Secret</b> of `peer1pw`.  Click <b>Next</b>.  Set the <b>Type</b>for this identity as `peer` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank
+  - First, we will register an admin for our organization "org1". Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `org1admin`, and <b>Enroll Secret</b> of `org1adminpw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `client` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank
+  - We will repeat the process to create an identity of the peer. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `peer1`, and <b>Enroll Secret</b> of `peer1pw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `peer` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank
 
 <br>
 <p align="center">
@@ -175,7 +175,6 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - Give your peer a <b>Display name</b> of `Peer Org1`.
   - On the next screen, select `Org1 CA` as your <b>Certificate Authority</b>. Then, give the <b>Enroll ID</b> and <b>Enroll secret</b> for the peer identity that you created for your peer, `peer1`, and `peer1pw`. Then, select the <b>Administrator Certificate (from MSP)</b>, `Org1 MSP`, from the drop-down list and click <b>Next</b>.
   - Give the <b>TLS Enroll ID</b>, `admin`, and <b>TLS Enroll secret</b>, `adminpw`, the same values are the Enroll ID and Enroll secret that you gave when creating the CA.  Leave the <b>TLS CSR hostname</b> blank.
-  - Next, choose the <b>Client TLS Certificate Authority</b> as `Org1 CA`. Leave the <b>Client TLS Enroll ID</b> and <b>Client Enroll Secret</b> blank.
   - The last side panel will ask you to <b>Associate an identity</b> and make it the admin of your peer. Select your peer admin identity `Org1 Admin`.
   - Review the summary and click <b>Submit</b>.
 
@@ -201,8 +200,8 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 * #### Use your CA to register orderer and orderer admin identities
   - In the <b>Nodes</b> tab, select the <b>Orderer CA</b> Certificate Authority that we created
-  - First, we will register an admin for our organization. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `ordereradmin`, and <b>Enroll Secret</b> of `ordereradminpw`.  Click <b>Next</b>.  Set the <b>Type</b>for this identity as `client` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank
-  - We will repeat the process to create an identity of the orderer. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `orderer1`, and <b>Enroll Secret</b> of `orderer1pw`.  Click <b>Next</b>.  Set the <b>Type</b>for this identity as `peer` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank
+  - First, we will register an admin for our organization. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `ordereradmin`, and <b>Enroll Secret</b> of `ordereradminpw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `client` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank
+  - We will repeat the process to create an identity of the orderer. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `orderer1`, and <b>Enroll Secret</b> of `orderer1pw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `peer` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank
 
 <br>
 <p align="center">
@@ -230,7 +229,6 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - Give your peer a <b>Display name</b> of `Orderer`.
   - On the next screen, select `Orderer CA` as your <b>Certificate Authority</b>. Then, give the <b>Enroll ID</b> and <b>Enroll secret</b> for the peer identity that you created for your orderer, `orderer1`, and `orderer1pw`. Then, select the <b>Administrator Certificate (from MSP)</b>, `Orderer MSP`, from the drop-down list and click <b>Next</b>.
   - Give the <b>TLS Enroll ID</b>, `admin`, and <b>TLS Enroll secret</b>, `adminpw`, the same values are the Enroll ID and Enroll secret that you gave when creating the CA.  Leave the <b>TLS CSR hostname</b> blank.
-  - Next, choose the <b>Client TLS Certificate Authority</b> as `Orderer CA`. Leave the <b>Client TLS Enroll ID</b> and <b>Client Enroll Secret</b> blank.
   - The last side panel will ask to <b>Associate an identity</b> and make it the admin of your peer. Select your peer admin identity `Orderer Admin`.
   - Review the summary and click <b>Submit</b>.
 
@@ -277,7 +275,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - Select your `Orderer` and click <b>Next</b>.
   - Enter the name of the channel you just created `mychannel` and click <b>Next</b>.
   - Select which peers you want to join the channel, click `Peer Org1` .
-  - Click Submit.
+  - Click <b>Submit</b>.
 
 <br>
 <p align="center">
@@ -292,6 +290,8 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 * #### Install a smart contract
   - Click the <b>Smart contracts</b> tab to install the smart contract.
   - Click <b>Install smart contract</b> to upload the Fabcar smart contract package file, which you packaged earlier using the Visual Studio code extension.
+  - Click on <b>Add file</b> and find your packaged smart contract.  
+  - Once the contract is uploaded, click <b>Install</b>
 
 
 <br>
@@ -302,8 +302,10 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 * #### Instantiate smart contract
   - On the smart contracts tab, find the smart contract from the list installed on your peers and click <b>Instantiate</b> from the overflow menu on the right side of the row.
-  - On the side panel that opens, select the channel, `mychannel` to instantiate the smart contract on, and select the orderer,  `Orderer` where the channel resides. Click <b>Next</b>.
-  - Select the organization members to be included in the policy, which would be `org1msp`
+  - On the side panel that opens, select the channel, `mychannel` to instantiate the smart contract on. Click <b>Next</b>.
+  - Select the organization members to be included in the policy, `org1msp`.  Click <b>Next</b>.
+  - Give <b>Function name</b> of `initLedger` and leave <b>Arguments</b> blank.
+  - Click <b>Instantiate</b>
 
 <br>
 <p align="center">
@@ -317,7 +319,8 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - Under the Instantiated Smart Contract, click on `Connect with SDK` from the overflow menu on the right side of the row
   - Choose from the dropdown for <b>MSP for connection</b>, `org1msp`
   - Choose from <b>Certificate Authority</b> dropdown, `Org1 CA`
-  - Download the connection profile by scrolling down and clicking <b>Download Connection Profile</b>
+  - Download the connection profile by scrolling down and clicking <b>Download Connection Profile</b>.  This will download the connection json which we will use soon to establish connection.
+  - You can click <b>Close</b> once the download completes
 
 <br>
 <p align="center">
@@ -331,7 +334,8 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - Give an <b>Enroll ID</b> and <b>Enroll Secret</b> to administer your application users, `app-admin` and `app-adminpw`
   - Choose `client` as <b>Type</b> and any organization for affiliation.  We can pick `org1` to be consistent
   - You can leave the <b>Maximum enrollments</b> blank
-  - Under <b>Attributes</b>, click on <b>Add attribute</b>.  Give attribute as `hf.Registrar.Roles` = `*`.  This will allow this identity to act as registrar and issues identities for our app
+  - Under <b>Attributes</b>, click on <b>Add attribute</b>.  Give attribute as `hf.Registrar.Roles` = `*`.  This will allow this identity to act as registrar and issues identities for our app.  Click <b>Add-attribute</b>.
+  - Click <b>Register</b>
 
 <br>
 <p align="center">
@@ -347,6 +351,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
     - The <b>enroll id</b> and <b>enroll secret</b> for your app admin, which we earlier provided as `app-admin` and `app-adminpw`
     - The orgMSP ID, which we provided as `org1msp`
     - The caName, which can be found in your connection json file under "organization" -> "org1msp" -> certificateAuthorities". This would be like an IP address and a port.
+    - Update gateway discovery to `{ enabled: true, asLocalhost: false }` to connect to IBP
 
 > the current default setup is to connect to a local fabric instance from VS Code
 
@@ -357,6 +362,7 @@ var appAdminSecret = 'app-adminpw';
 var orgMSPID = 'org1msp';
 var caName = '169.46.208.151:30404';
 var userName = 'user1';
+var gatewayDiscovery = { enabled: true, asLocalhost: false };
 ```
 
 
