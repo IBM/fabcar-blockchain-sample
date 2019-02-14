@@ -2,9 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">    
       
-        <p><router-link to="/">Home</router-link>&nbsp;  
-        <router-link to="/enrollAdmin">Enroll Admin</router-link>&nbsp;
-        <router-link to="/registerUser">Register User</router-link>&nbsp;
+        <p><router-link to="/">Home</router-link>&nbsp;          
         <router-link to="/createCar">Create Car</router-link>&nbsp;
         <router-link to="/changeCarOwner">Change Car Owner</router-link>&nbsp;
         <router-link to="/QueryAllCars">Query All Cars</router-link></p>
@@ -14,13 +12,9 @@
 </template>
 
 <script>
-import Home from './components/Home.vue'
 
 export default {
-  name: 'app',
-  components: {
-    Home
-  }
+  name: 'app'  
 }
 </script>
 

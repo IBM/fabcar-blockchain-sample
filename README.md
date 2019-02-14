@@ -80,7 +80,7 @@ We will use the IBM Blockchain Platform extension to package the Fabcar smart co
 
 * Click the `IBM Blockchain Platform` extension button on the left. This will show the packaged contracts on top and the blockchain connections on the bottom.
 
-* Next, right click on the packaged contract to export it and choose `Export Package`
+* Next, right click on the packaged contract to export it and choose `Export Package`.
 
 * Choose a location on your machine and save `.cds` file.  We will use this packages smart contract later to deploy on our work.
 
@@ -131,10 +131,10 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 ### Create your organization and your entry point to your blockchain
 
 * #### Create your peer organization CA
-  - Click <b>Add Certificate Authority</b>
-  - Click <b>IBM Cloud</b> under <b>Create Certificate Authority</b> and <b>Next</b>
+  - Click <b>Add Certificate Authority</b>.
+  - Click <b>IBM Cloud</b> under <b>Create Certificate Authority</b> and <b>Next</b>.
   - Give it a <b>Display name</b> of `Org1 CA`.  
-  - Specify an <b>Admin ID</b> of `admin` and <b>Admin Secret</b> of `adminpw`
+  - Specify an <b>Admin ID</b> of `admin` and <b>Admin Secret</b> of `adminpw`.
 
 <br>
 <p align="center">
@@ -144,9 +144,9 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 
 * #### Use your CA to register identities
-  - Select the <b>Org 1 CA</b> Certificate Authority that we created
-  - First, we will register an admin for our organization "org1". Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `org1admin`, and <b>Enroll Secret</b> of `org1adminpw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `client` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank
-  - We will repeat the process to create an identity of the peer. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `peer1`, and <b>Enroll Secret</b> of `peer1pw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `peer` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank
+  - Select the <b>Org 1 CA</b> Certificate Authority that we created.
+  - First, we will register an admin for our organization "org1". Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `org1admin`, and <b>Enroll Secret</b> of `org1adminpw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `client` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank.
+  - We will repeat the process to create an identity of the peer. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `peer1`, and <b>Enroll Secret</b> of `peer1pw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `peer` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank.
 
 <br>
 <p align="center">
@@ -157,7 +157,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 * #### Create the peer organization MSP definition
   - Navigate to the <b>Organizations</b> tab in the left navigation and click <b>Create MSP definition</b>.
-  - Enter the <b>MSP Display name</b> as `Org1 MSP` and an <b>MSP ID</b> of `org1msp`
+  - Enter the <b>MSP Display name</b> as `Org1 MSP` and an <b>MSP ID</b> of `org1msp`.
   - Under <b>Root Certificate Authority</b> details, specify the peer CA that we created `Org1 CA` as the root CA for the organization.
   - Give the <b>Enroll ID</b> and <b>Enroll secret</b> for your organization admin, `org1admin` and `org1adminpw`. Then, give the Identity name, `Org1 Admin`.
   - Click the <b>Generate</b> button to enroll this identity as the admin of your organization and export the identity to the wallet. Click <b>Export</b> to export the admin certificates to your file system. Finally click <b>Create MSP definition</b>.
@@ -187,10 +187,10 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 ### Create the node that orders transactions
 
 * #### Create your orderer organization CA
-  - Click <b>Add Certificate Authority</b>
-  - Click <b>IBM Cloud</b> under <b>Create Certificate Authority</b> and <b>Next</b>
+  - Click <b>Add Certificate Authority</b>.
+  - Click <b>IBM Cloud</b> under <b>Create Certificate Authority</b> and <b>Next</b>.
   - Give it a unique <b>Display name</b> of `Orderer CA`.  
-  - Specify an <b>Admin ID</b> of `admin` and <b>Admin Secret</b> of `adminpw`
+  - Specify an <b>Admin ID</b> of `admin` and <b>Admin Secret</b> of `adminpw`.
 
 <br>
 <p align="center">
@@ -199,9 +199,9 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 <br>
 
 * #### Use your CA to register orderer and orderer admin identities
-  - In the <b>Nodes</b> tab, select the <b>Orderer CA</b> Certificate Authority that we created
-  - First, we will register an admin for our organization. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `ordereradmin`, and <b>Enroll Secret</b> of `ordereradminpw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `client` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank
-  - We will repeat the process to create an identity of the orderer. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `orderer1`, and <b>Enroll Secret</b> of `orderer1pw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `peer` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank
+  - In the <b>Nodes</b> tab, select the <b>Orderer CA</b> Certificate Authority that we created.
+  - First, we will register an admin for our organization. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `ordereradmin`, and <b>Enroll Secret</b> of `ordereradminpw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `client` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank.
+  - We will repeat the process to create an identity of the orderer. Click on the <b>Register User</b> button.  Give an <b>Enroll ID</b> of `orderer1`, and <b>Enroll Secret</b> of `orderer1pw`.  Click <b>Next</b>.  Set the <b>Type</b> for this identity as `peer` and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> and <b>Add Attributes</b> fields blank.
 
 <br>
 <p align="center">
@@ -212,7 +212,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 * #### Create the orderer organization MSP definition
   - Navigate to the <b>Organizations</b> tab in the left navigation and click <b>Create MSP definition</b>.
-  - Enter the <b>MSP Display name</b> as `Orderer MSP` and an <b>MSP ID</b> of `orderermsp`
+  - Enter the <b>MSP Display name</b> as `Orderer MSP` and an <b>MSP ID</b> of `orderermsp`.
   - Under <b>Root Certificate Authority</b> details, specify the peer CA that we created `Orderer CA` as the root CA for the organization.
   - Give the <b>Enroll ID</b> and <b>Enroll secret</b> for your organization admin, `ordereradmin` and `ordereradminpw`. Then, give the <b>Identity name</b>, `Orderer Admin`.
   - Click the <b>Generate</b> button to enroll this identity as the admin of your organization and export the identity to the wallet. Click <b>Export</b> to export the admin certificates to your file system. Finally click <b>Create MSP definition</b>.
@@ -239,7 +239,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 <br>
 
 * #### Add organization as Consortium Member on the orderer to transact
-  - Navigate to the <b>Nodes</b> tab, and click on the <b>Orderer</b> that we created
+  - Navigate to the <b>Nodes</b> tab, and click on the <b>Orderer</b> that we created.
   - Under <b>Consortium Members</b>, click <b>Add organization</b>.
   - From the drop-down list, select `Org1 MSP`, as this is the MSP that represents the peer's organization org1.
   - Click <b>Submit</b>.
@@ -254,14 +254,14 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 ### Create and join channel
 
 * #### Create the channel
-  - Navigate to the <b>Channels</b> tab in the left navigation
+  - Navigate to the <b>Channels</b> tab in the left navigation.
   - Click <b>Create channel</b>.
   - Give the channel a name, `mychannel`.
   - Select the orderer you created, `Orderer` from the orderers drop-down list.
   - Select the MSP identifying the organization of the channel creator from the drop-down list. This should be `Org1 MSP (org1msp)`.
   - Associate available identity as `Org1 Admin`.
   - Click <b>Add</b> next to your organization. Make your organization an <b>Operator</b>.
-  - Click <b>Create</b>
+  - Click <b>Create</b>.
 
 <br>
 <p align="center">
@@ -273,7 +273,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 * #### Join your peer to the channel
   - Click <b>Join channel</b> to launch the side panels.
   - Select your `Orderer` and click <b>Next</b>.
-  - Enter the name of the channel you just created `mychannel` and click <b>Next</b>.
+  - Enter the name of the channel you just created. `mychannel` and click <b>Next</b>.
   - Select which peers you want to join the channel, click `Peer Org1` .
   - Click <b>Submit</b>.
 
@@ -291,7 +291,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - Click the <b>Smart contracts</b> tab to install the smart contract.
   - Click <b>Install smart contract</b> to upload the Fabcar smart contract package file, which you packaged earlier using the Visual Studio code extension.
   - Click on <b>Add file</b> and find your packaged smart contract.  
-  - Once the contract is uploaded, click <b>Install</b>
+  - Once the contract is uploaded, click <b>Install</b>.
 
 
 <br>
@@ -305,7 +305,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - On the side panel that opens, select the channel, `mychannel` to instantiate the smart contract on. Click <b>Next</b>.
   - Select the organization members to be included in the policy, `org1msp`.  Click <b>Next</b>.
   - Give <b>Function name</b> of `initLedger` and leave <b>Arguments</b> blank.
-  - Click <b>Instantiate</b>
+  - Click <b>Instantiate</b>.
 
 <br>
 <p align="center">
@@ -316,11 +316,11 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 ## 6. Connect application to the network
 
 * #### Connect with sdk through connection profile
-  - Under the Instantiated Smart Contract, click on `Connect with SDK` from the overflow menu on the right side of the row
-  - Choose from the dropdown for <b>MSP for connection</b>, `org1msp`
-  - Choose from <b>Certificate Authority</b> dropdown, `Org1 CA`
+  - Under the Instantiated Smart Contract, click on `Connect with SDK` from the overflow menu on the right side of the row.
+  - Choose from the dropdown for <b>MSP for connection</b>, `org1msp`.
+  - Choose from <b>Certificate Authority</b> dropdown, `Org1 CA`.
   - Download the connection profile by scrolling down and clicking <b>Download Connection Profile</b>.  This will download the connection json which we will use soon to establish connection.
-  - You can click <b>Close</b> once the download completes
+  - You can click <b>Close</b> once the download completes.
 
 <br>
 <p align="center">
@@ -329,13 +329,13 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 <br>
 
 * #### Create an application admin
-  - Go to the <b>Nodes</b> tab on the left bar, and under <b>Certifacte Authorities</b>, choose your organization CA, <b>Org1 CA</b>
-  - Click on <b>Register user</b>
-  - Give an <b>Enroll ID</b> and <b>Enroll Secret</b> to administer your application users, `app-admin` and `app-adminpw`
-  - Choose `client` as <b>Type</b> and any organization for affiliation.  We can pick `org1` to be consistent
-  - You can leave the <b>Maximum enrollments</b> blank
+  - Go to the <b>Nodes</b> tab on the left bar, and under <b>Certifacte Authorities</b>, choose your organization CA, <b>Org1 CA</b>.
+  - Click on <b>Register user</b>.
+  - Give an <b>Enroll ID</b> and <b>Enroll Secret</b> to administer your application users, `app-admin` and `app-adminpw`.
+  - Choose `client` as <b>Type</b> and any organization for affiliation.  We can pick `org1` to be consistent.
+  - You can leave the <b>Maximum enrollments</b> blank.
   - Under <b>Attributes</b>, click on <b>Add attribute</b>.  Give attribute as `hf.Registrar.Roles` = `*`.  This will allow this identity to act as registrar and issues identities for our app.  Click <b>Add-attribute</b>.
-  - Click <b>Register</b>
+  - Click <b>Register</b>.
 
 <br>
 <p align="center">
@@ -345,52 +345,80 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 
 * #### Update application connection
-  - Copy the connection profile you downloaded into [fabric folder](web-app/server/src/fabric)
-  - Update the [network.js](web-app/server/src/fabric/network.js#L9) with:
-    - The connection json file name you downloaded
-    - The <b>enroll id</b> and <b>enroll secret</b> for your app admin, which we earlier provided as `app-admin` and `app-adminpw`
-    - The orgMSP ID, which we provided as `org1msp`
+  - Copy the connection profile you downloaded into [server folder](web-app/server)
+  - Update the [config.json](web-app/server/config.json) file with:
+    - The connection json file name you downloaded.
+    - The <b>enroll id</b> and <b>enroll secret</b> for your app admin, which we earlier provided as `app-admin` and `app-adminpw`.
+    - The orgMSP ID, which we provided as `org1msp`.
     - The caName, which can be found in your connection json file under "organization" -> "org1msp" -> certificateAuthorities". This would be like an IP address and a port.
-    - Update gateway discovery to `{ enabled: true, asLocalhost: false }` to connect to IBP
+    - The username you would like to register.
+    - Update gateway discovery to `{ enabled: true, asLocalhost: false }` to connect to IBP.
 
 > the current default setup is to connect to a local fabric instance from VS Code
 
 ```js
-var connection_file = 'mychannel_fabcar_profile.json';
-var appAdmin = 'app-admin';
-var appAdminSecret = 'app-adminpw';
-var orgMSPID = 'org1msp';
-var caName = '169.46.208.151:30404';
-var userName = 'user1';
-var gatewayDiscovery = { enabled: true, asLocalhost: false };
+{
+    "connection_file": "mychannel_fabcar_profile.json",
+    "appAdmin": "app-admin",
+    "appAdminSecret": "app-adminpw",
+    "orgMSPID": "org1msp",
+    "caName": "169.46.208.151:30404",
+    "userName": "user1",
+    "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
+}
 ```
 
 
 ## 7. Run the application
 
-Navigate to the `web-app` directory:
+* #### Enroll admin
+  - First, navigate to the `web-app` directory, and install the node dependencies.
+    ```bash
+    cd web-app/server
+    npm install
+    ```
 
-* First run the application server:
-  ```bash
-  cd web-app/server
-  npm install
-  ```
+  - Run the `enrollAdmin.js` script
+    ```bash
+    node enrollAdmin.js
+    ```
 
-  Start the server:
-  ```bash
-  npm start
-  ```
+  - You should see the following in the terminal:
+    ```bash
+    msg: Successfully enrolled admin user app-admin and imported it into the wallet
+    ```
 
-* In a new terminal, start the web client:
-  ```bash
-  cd web-app/server
-  npm install
-  ```
+* #### Register User
+  - Run the `registerUser.js` script.
+    ```bash
+    node registerUser.js
+    ```
 
-  Start the server:
-  ```bash
-  npm run serve
-  ```
+  - You should see the following in the terminal:
+    ```bash
+    Successfully registered and enrolled admin user user1 and imported it into the wallet
+    ```
+
+
+
+* #### Run the application server
+  - From the `server` directory, start the server.
+
+    ```bash
+    npm start
+    ```
+
+* #### Start the web client
+  - In a new terminal, open the web client folder and install the dependencies.
+    ```bash
+    cd web-app/client
+    npm install
+    ```
+
+  - Start the client:
+    ```bash
+    npm run serve
+    ```
 
 You can find the app running at http://localhost:8080/
 

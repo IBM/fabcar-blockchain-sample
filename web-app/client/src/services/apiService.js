@@ -1,12 +1,6 @@
 import Api from '@/services/api'
 
-export default {  
-  enrollAdmin() {
-    return Api().get('enrollAdmin')
-  },
-  registerUser() {
-    return Api().get('registerUser')
-  },
+export default {
   changeCarOwner(key, newOwner) {
     return Api().post('changeCarOwner', {       
       key: key,
