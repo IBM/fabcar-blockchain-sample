@@ -401,7 +401,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 
 
-* #### Run the application server
+* #### Start the application server
   - From the `server` directory, start the server.
 
     ```bash
