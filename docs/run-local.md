@@ -70,7 +70,7 @@ We will use the IBM Blockchain Platform extension to package the Fabcar smart co
 ## 4. Run the application
 
 * #### Enroll admin
-  - First, navigate to the `web-app` directory, and install the node dependencies
+  - First, navigate to the `web-app` directory, and install the node dependencies.
     ```bash
     cd web-app/server
     npm install
@@ -81,18 +81,18 @@ We will use the IBM Blockchain Platform extension to package the Fabcar smart co
     node enrollAdmin.js
     ```
 
-  - You should see the following in the terminal
+  - You should see the following in the terminal:
     ```bash
-    msg: Successfully enrolled admin user admin and imported it into the wallet
+    msg: Successfully enrolled admin user app-admin and imported it into the wallet
     ```
 
 * #### Register User
-  - Run the `registerUser.js` script
+  - Run the `registerUser.js` script.
     ```bash
     node registerUser.js
     ```
 
-  - You should see the following in the terminal
+  - You should see the following in the terminal:
     ```bash
     Successfully registered and enrolled admin user user1 and imported it into the wallet
     ```
@@ -100,13 +100,14 @@ We will use the IBM Blockchain Platform extension to package the Fabcar smart co
 
 
 * #### Run the application server
-  - From the `server` directory, start the server
+  - From the `server` directory, start the server.
+
     ```bash
     npm start
     ```
 
 * #### Start the web client
-  - In a new terminal, open the web client and install dependencies
+  - In a new terminal, open the web client folder and install the dependencies.
     ```bash
     cd web-app/client
     npm install
@@ -116,6 +117,7 @@ We will use the IBM Blockchain Platform extension to package the Fabcar smart co
     ```bash
     npm run serve
     ```
+
 
 You can find the app running at http://localhost:8080/
 
