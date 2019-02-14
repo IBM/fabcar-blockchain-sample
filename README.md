@@ -345,52 +345,79 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 
 * #### Update application connection
-  - Copy the connection profile you downloaded into [fabric folder](web-app/server/src/fabric)
-  - Update the [network.js](web-app/server/src/fabric/network.js#L9) with:
+  - Copy the connection profile you downloaded into [server folder](web-app/server)
+  - Update the [config.json](web-app/server/config.json) file with:
     - The connection json file name you downloaded
     - The <b>enroll id</b> and <b>enroll secret</b> for your app admin, which we earlier provided as `app-admin` and `app-adminpw`
     - The orgMSP ID, which we provided as `org1msp`
     - The caName, which can be found in your connection json file under "organization" -> "org1msp" -> certificateAuthorities". This would be like an IP address and a port.
+    - The username you would like to register
     - Update gateway discovery to `{ enabled: true, asLocalhost: false }` to connect to IBP
 
 > the current default setup is to connect to a local fabric instance from VS Code
 
 ```js
-var connection_file = 'mychannel_fabcar_profile.json';
-var appAdmin = 'app-admin';
-var appAdminSecret = 'app-adminpw';
-var orgMSPID = 'org1msp';
-var caName = '169.46.208.151:30404';
-var userName = 'user1';
-var gatewayDiscovery = { enabled: true, asLocalhost: false };
+{
+    "connection_file": "mychannel_fabcar_profile.json",
+    "appAdmin": "app-admin",
+    "appAdminSecret": "app-adminpw",
+    "orgMSPID": "org1msp",
+    "caName": "169.46.208.151:30404",
+    "userName": "user1",
+    "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
+}
 ```
 
 
 ## 7. Run the application
 
-Navigate to the `web-app` directory:
+* #### Enroll admin
+  - First, navigate to the `web-app` directory, and install the node dependencies
+    ```bash
+    cd web-app/server
+    npm install
+    ```
 
-* First run the application server:
-  ```bash
-  cd web-app/server
-  npm install
-  ```
+  - Run the `enrollAdmin.js` script
+    ```bash
+    node enrollAdmin.js
+    ```
 
-  Start the server:
-  ```bash
-  npm start
-  ```
+  - You should see the following in the terminal
+    ```bash
+    msg: Successfully enrolled admin user app-admin and imported it into the wallet
+    ```
 
-* In a new terminal, start the web client:
-  ```bash
-  cd web-app/server
-  npm install
-  ```
+* #### Register User
+  - Run the `registerUser.js` script
+    ```bash
+    node registerUser.js
+    ```
 
-  Start the server:
-  ```bash
-  npm run serve
-  ```
+  - You should see the following in the terminal
+    ```bash
+    Successfully registered and enrolled admin user user1 and imported it into the wallet
+    ```
+
+
+
+* #### Run the application server
+  - From the `server` directory, start the server
+    ```bash
+    npm start
+    ```
+
+* #### Start the web client
+  - In a new terminal, open the web client and install dependencies
+    ```bash
+    cd web-app/client
+    npm install
+    ```
+
+  - Start the client:
+    ```bash
+    npm run serve
+    ```
 
 You can find the app running at http://localhost:8080/
 

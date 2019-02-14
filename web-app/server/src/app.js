@@ -11,20 +11,6 @@ app.use(bodyParser.json())
 app.use(cors())
 
 
-app.get('/enrollAdmin', (req, res) => {
-  network.enrollAdmin()
-    .then((response) => {        
-        res.send(response)
-      });
-})
-
-app.get('/registerUser', (req, res) => {
-  network.registerUser()
-    .then((response) => {       
-        res.send(response)
-      });
-})
-
 app.get('/queryAllCars', (req, res) => {
   network.queryAllCars()
     .then((response) => {      
