@@ -119,6 +119,6 @@ You can find the app running at http://localhost:8080/
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/application.gif">
+  <img src="doc-gifs/application.gif">
 </p>
 <br>
