@@ -49,16 +49,12 @@ We will use the IBM Blockchain Platform extension to package the Fabcar smart co
 
 ## 3. Setup network locally and deploy the smart contract
 
-* Click on `local_fabric` to start a network. This will download the Docker images required for a local Fabric setup, and start the network. You should see the output window as the network sets up.
+* Click on the overflow menu for `LOCAL FABRIC OPS`, and choose `Start Fabric Runtime` to start a network. This will download the Docker images required for a local Fabric setup, and start the network. Once setup is complete, you should see under `LOCAL FABRIC OPS`, options to install and instantiate smart contract, your `Channels` information, your peer under `Nodes` and the organization msp under `Organizations`. You are now ready to install the smart contract.
 
+* Click on `+Install` under `Installed` dropdown in the `LOCAL FABRIC OPS` console. Choose the peer: `peer0.org1.example.com`. Choose the `fabcar@1.0.0` contract. You should see a notification for successful install of the smart contract, and the smart contract listed under `Installed` in your `LOCAL FABRIC OPS` console. You are now ready to instantiate the smart contract.
 
-* Click on `local_fabric` again; it should have a full white circle next to it. This should bring up `mychannel`. You are now ready to install the smart contract.
+* Click on `+Instantiate` under `Instantiated` dropdown in the `LOCAL FABRIC OPS` console. Choose the channel: `mychannel`. Choose the `fabcar@1.0.0` contract.  Type in `initLedger` for the function. You can press **Enter** for optional arguments.  Once this is successfully instantiated, you should see a successful notification in the output view, and the smart contract listed under `Instantiated` in your `LOCAL FABRIC OPS` console.
 
-* Click on `mychannel`, then `Peers`. This will display `peer0.org1.example.com`. Right click on it and choose `Install Smart Contract`.  Choose the `fabcar@1.0.0` contract.
-
-* You are now ready to instantiate the smart contract. Right click on `mychannel` and choose `Instantiate Smart Contract`. Choose the `fabcar@1.0.0` contract:
-
-* Type in `initLedger` for the function.  You can press **Enter** for optional arguments. Once this is successfully instantiated, you should see a successful notification in the output view.
 
 <br>
 <p align="center">
