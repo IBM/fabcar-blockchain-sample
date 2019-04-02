@@ -1,0 +1,9 @@
+@import '../../colors.scss';
+
+:host {
+  height: 100%;
+  width: 100%;
+  background-color: $background;
+  display: flex;
+  flex: 1;
+}

@@ -1,0 +1,18 @@
+<div>
+  <table>
+    <th>Key</th>
+    <th>Color</th>
+    <th>docType</th>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Owner</th>
+    <tr *ngFor="let item of response">
+      <td>{{item.Key}}</td>
+      <td>{{item.Record.color}}</td>
+      <td>{{item.Record.docType}}</td>
+      <td>{{item.Record.make}}</td>
+      <td>{{item.Record.model}}</td>
+      <td>{{item.Record.owner}}</td>
+    </tr>
+  </table>
+</div>

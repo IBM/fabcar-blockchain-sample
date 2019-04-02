@@ -118,6 +118,7 @@ exports.changeCarOwner = async function(key, newOwner) {
 // query all cars transaction
 exports.queryAllCars = async function() {
     try {
+        console.log('Jake')
 
         var response = {};
 
