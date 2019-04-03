@@ -16,6 +16,6 @@
       <label for="owner">Owner</label>
       <input type="text" class="form-control" name="owner" required ngModel>
     </div>
-    <button type="submit" class="btn btn-success">Create Car</button>
+    <button [disabled]="!f.valid" type="submit" class="btn btn-success">Create Car</button>
   </form>
 </div>
