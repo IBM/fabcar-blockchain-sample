@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QueryAllCarsService } from './query-all-cars.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-query-all-cars',
@@ -8,16 +9,14 @@ import { QueryAllCarsService } from './query-all-cars.service';
 })
 export class QueryAllCarsComponent implements OnInit {
 
+  private cars: Array<object>;
   response;
-  constructor(private queryAllCarsService: QueryAllCarsService) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.queryAllCarsService.queryAllCars().subscribe((response: any) => {
-      this.response = response;
+    this.apiService.cars$.subscribe((carsArray) => {
+      this.cars = carsArray;
     });
-  }
-
-  async loadCars () {
-    const response = await this.queryAllCarsService.queryAllCars();
+    this.apiService.queryAllCars();
   }
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 const httpOptionsJson = {
   headers: new HttpHeaders({
@@ -17,6 +18,9 @@ const changeCarOwnerURL = `/changeCarOwner`;
 
 @Injectable()
 export class ApiService {
+
+  public cars$: Subject<Array<object>> = new BehaviorSubject<Array<object>>([]);
+
   constructor(private http: HttpClient) {
   }
 
@@ -26,16 +30,18 @@ export class ApiService {
       'model': model,
       'color': color,
       'owner': owner
-    }), {headers}).toPromise().then((result) => { console.log(result); });
+    }), {headers}).toPromise().then((result) => { this.queryAllCars(); });
 
   }
 
   changeCarOwner(key: string, newOwner: string) {
     return this.http.post(baseURL + changeCarOwnerURL, {'key': key, 'newOwner': newOwner},
-    {headers}).toPromise().then((result) => {console.log(result); });
+    {headers}).toPromise().then((result) => { this.queryAllCars(); });
   }
 
   queryAllCars() {
-    return this.http.get<Array<any>>(baseURL + queryAllCarsURL, httpOptionsJson);
+    return this.http.get<Array<any>>(baseURL + queryAllCarsURL, httpOptionsJson).subscribe((response) => {
+      this.cars$.next(response);
+    });
   }
 }
