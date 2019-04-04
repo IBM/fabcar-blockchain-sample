@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Source+Code+Pro');
+@import './colors.scss';
+
+* {
+  font-family: IBMPlexSans-Light;
+}
+
+header {
+  font-family: IBMPlexSans-Light;
+}
+
+body {
+  font-family: IBMPlexSans-Light;
+  margin: 0px;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+button {
+  font-family: IBMPlexSans-Light;
+
+}
