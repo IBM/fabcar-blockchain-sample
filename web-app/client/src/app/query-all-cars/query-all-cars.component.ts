@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { QueryAllCarsService } from './query-all-cars.service';
 import { ApiService } from '../api.service';
 
 @Component({
