@@ -1,4 +1,4 @@
-@import '../../../../colors.scss';
+@import '../../../colors.scss';
 
 :host {
   height: 100%;
@@ -6,6 +6,7 @@
   padding: 1em;
   background: $active-form-background;
   color: $primary-text;
+  display: flex;
 }
 div {
   display: flex;
@@ -15,29 +16,29 @@ div {
     justify-self: center;
     flex-direction: column;
     font-size: 0.9em;
+    button {
+      border: none;
+      background-color: $button-color;
+      color: $button-text;
+      height: 30px;
+      font-size: 1em;
+      width: 204px;
+      margin: 4px;
+      &:disabled {
+        background-color: $disabled-button;
+        cursor: not-allowed;
+      }
+    }
     .form-group {
-      margin: 0.2em;
-      display: flex;
-      flex-direction: column;
+    margin: 0.2em;
+    display: flex;
+    flex-direction: column;
       label {
         margin-right: 0.5em;
       }
       input {
         width: 200px;
         height: 1.8em;
-      }
-    }
-    button {
-      width: 204px;
-      margin: 4px;
-      height: 30px;
-      font-size: 1em;
-      border: none;
-      background-color: $button-color;
-      color: $button-text;
-      &:disabled {
-        background-color: $disabled-button;
-        cursor: not-allowed;
       }
     }
   }
