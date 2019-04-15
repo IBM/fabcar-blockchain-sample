@@ -1,0 +1,42 @@
+@import '../../colors.scss';
+
+:host {
+  height: 100%;
+  width: 100%;
+  background-color: $background;
+  display: flex;
+  flex: 1;
+  padding-left: 1em;
+
+  table {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: left;
+
+    thead {
+      display: flex;
+      flex-direction: row;
+      th {
+        flex: 1;
+      }
+    }
+
+    tbody {
+      flex-direction: column;
+      overflow-y: overlay;
+      flex: 1;
+      font-size: 14px;
+      tr {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        td {
+          flex: 1;
+        }
+      }
+
+    }
+  }
+
+}

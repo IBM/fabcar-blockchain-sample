@@ -1,0 +1,9 @@
+
+<div class="tabs">
+  <button [ngClass]="{'activeTab': showCreateCar}" (click)="toggle('create')">Create Car</button>
+  <button [ngClass]="{'activeTab': !showCreateCar}" (click)="toggle('change')">Change Car Owner</button>
+</div>
+<div>
+  <app-create-car-form *ngIf="showCreateCar"></app-create-car-form>
+  <app-change-car-owner-form *ngIf="!showCreateCar"></app-change-car-owner-form>
+</div>

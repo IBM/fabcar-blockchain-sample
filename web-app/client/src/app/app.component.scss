@@ -1,0 +1,31 @@
+@import '../colors.scss';
+
+
+:host {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: $background;
+  flex-direction: column;
+
+}
+
+header {
+  display: flex;
+  background-color: $header-background;
+  padding-left: 1em;
+
+  h1 {
+    color: $header-text;
+    font-size: 1.8em;
+  }
+}
+
+body {
+  margin: 1em 0em;
+  background-color: $background;
+  height: 100%;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}

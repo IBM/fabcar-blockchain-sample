@@ -20,8 +20,10 @@ app.get('/queryAllCars', (req, res) => {
 })
 
 app.post('/createCar', (req, res) => { 
+  console.log(req.body);
   network.queryAllCars()
     .then((response) => {
+      console.log(response);
       var carsRecord = JSON.parse(JSON.parse(response));
       var numCars = carsRecord.length;
       var newKey = 'CAR' + numCars;           
