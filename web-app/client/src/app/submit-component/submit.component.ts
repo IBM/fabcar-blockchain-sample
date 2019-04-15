@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CreateCarComponent } from './create-car/create-car.component';
-import { ChangeCarOwnerComponent } from './change-car-owner/change-car-owner.component';
+import { CreateCarFormComponent } from './create-car-form/create-car-form.component';
+import { ChangeCarOwnerFormComponent } from './change-car-owner-form/change-car-owner-form.component';
 
 @Component({
   selector: 'app-submit',
