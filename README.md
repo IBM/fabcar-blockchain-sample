@@ -417,7 +417,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
   - Start the client:
     ```bash
-    npm run serve
+    npm start
     ```
 
 You can find the app running at http://localhost:8080/
