@@ -6,3 +6,4 @@
     "caName": "173.193.109.26:30046",
     "userName": "user1",
     "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
+}
