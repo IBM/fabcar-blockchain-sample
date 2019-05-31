@@ -1,15 +1,15 @@
 # FabCar Blockchain Sample
 
->Hyperledger Fabric sample Fabcar on IBM Blockchain Platform 2.0
+>Hyperledger Fabric sample Fabcar on IBM Blockchain Platform
 
-This code pattern demonstrates setting up a network on the IBM Blockchain Platform 2.0 and deploying the Fabcar smart contract on the network.  Next, we setup our application to interact with the network including identities to submit transactions on the smart contract.  The application is setup with a Node.js server using the Fabric Node SDK to process requests to the network, and a Vue.js client to bring up a web interface.
+This code pattern demonstrates setting up a network on the IBM Blockchain Platform and deploying the Fabcar smart contract on the network.  Next, we setup our application to interact with the network including identities to submit transactions on the smart contract.  The application is setup with a Node.js server using the Fabric Node SDK to process requests to the network, and an Angular client to bring up a web interface.
 
  When the reader has completed this code pattern, they will understand how to:
 
-* Setup a Hyperledger Fabric network on IBM Blockchain Platform 2.0
-* Install and instantiate smart contract through the IBM Blockchain Platform 2.0
+* Setup a Hyperledger Fabric network on IBM Blockchain Platform
+* Install and instantiate smart contract through the IBM Blockchain Platform
 * Develop a Node.js server with the Hyperledger Fabric SDK to interact with the deployed network
-* Create a Vue.js frontend for the web app to interface with the network
+* Create an Angular frontend for the web app to interface with the network
 
 
 # Architecture flow
@@ -20,15 +20,15 @@ This code pattern demonstrates setting up a network on the IBM Blockchain Platfo
 
 The developer uses the IBM Blockchain Platform Extension for VS Code to:
 
-1. The Blockchain Operator sets up the IBM Blockchain Platform 2.0 service
-2. The IBM Blockchain Platform 2.0 enables to create a Hyperledger Fabric network onto a IBM Kubernetes Service, allowing to install and instantiate the Fabcar smart contract on the network
-3. The Node.js application server uses the Fabic sdk to interact with the deployed network on IBM Blockchain Platform 2.0 and creates APIs for a web client
+1. The Blockchain Operator sets up the IBM Blockchain Platform service
+2. The IBM Blockchain Platform enables to create a Hyperledger Fabric network onto a IBM Kubernetes Service, allowing to install and instantiate the Fabcar smart contract on the network
+3. The Node.js application server uses the Fabic sdk to interact with the deployed network on IBM Blockchain Platform and creates APIs for a web client
 4. The Vue.js client uses the Node.js application API to interact with the network
 5. The User interacts with the Fabcar Vue.js web interface to update and query the blockchain ledger and state
 
 
 # Included components
-*	[IBM Blockchain Platform 2.0](https://console.bluemix.net/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) gives you total control of your blockchain network with a user interface that can simplify and accelerate your journey to deploy and manage blockchain components on the IBM Cloud Kubernetes Service.
+*	[IBM Blockchain Platform](https://console.bluemix.net/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) gives you total control of your blockchain network with a user interface that can simplify and accelerate your journey to deploy and manage blockchain components on the IBM Cloud Kubernetes Service.
 *	[IBM Cloud Kubernetes Service](https://www.ibm.com/cloud/container-service) gcreates a cluster of compute hosts and deploys highly available containers. A Kubernetes cluster lets you securely manage the resources that you need to quickly deploy, update, and scale applications.
 * [IBM Blockchain Platform Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform) is designed to assist users in developing, testing, and deploying smart contracts -- including connecting to Hyperledger Fabric environments.
 
@@ -100,7 +100,7 @@ Now, we will start creating our Hyperledger Fabric network on the IBM Cloud.
 </p>
 <br>
 
-* Create the [IBM Blockchain Platform 2.0](https://console.bluemix.net/catalog/services/blockchain/) service on the IBM Cloud.  You can find the service in the `Catalog`, and give a name.
+* Create the [IBM Blockchain Platform](https://console.bluemix.net/catalog/services/blockchain/) service on the IBM Cloud.  You can find the service in the `Catalog`, and give a name.
 
 <br>
 <p align="center">
@@ -112,7 +112,7 @@ Now, we will start creating our Hyperledger Fabric network on the IBM Cloud.
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/deploy-blockchain-on-cluster.gif">
+  <img src="docs/doc-gifs/deployblockchainservice.gif">
 </p>
 <br>
 
@@ -138,7 +138,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/create-peer-org1-ca.gif">
+  <img src="docs/doc-gifs/createpeerorg1-ca.gif">
 </p>
 <br>
 
@@ -150,7 +150,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/org1-ca-register-identities.gif">
+  <img src="docs/doc-gifs/org1caregister-identities.gif">
 </p>
 <br>
 
@@ -164,7 +164,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/peer-org-msp-def.gif">
+  <img src="docs/doc-gifs/peerorgmsp-def.gif">
 </p>
 <br>
 
@@ -180,7 +180,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/create-peer.gif">
+  <img src="docs/doc-gifs/createpeer.gif">
 </p>
 <br>
 
@@ -194,7 +194,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/orderer-org-ca.gif">
+  <img src="docs/doc-gifs/ordererorg-ca.gif">
 </p>
 <br>
 
@@ -205,7 +205,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/orderer-ca-register-identities.gif">
+  <img src="docs/doc-gifs/orderercaregister-identities.gif">
 </p>
 <br>
 
@@ -219,12 +219,12 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/orderer-org-msp-def.gif">
+  <img src="docs/doc-gifs/ordererorgmsp-def.gif">
 </p>
 <br>
 
 * #### Create an orderer
-  - On the <b>Nodes</b> page, click <b>Add orderer</b>.
+  - On the <b>Nodes</b> page, click <b>Add orderering service</b>.
   - Click <b>IBM Cloud</b> and proceed with <b>Next</b>.
   - Give your peer a <b>Display name</b> of `Orderer`.
   - On the next screen, select `Orderer CA` as your <b>Certificate Authority</b>. Then, give the <b>Enroll ID</b> and <b>Enroll secret</b> for the peer identity that you created for your orderer, `orderer1`, and `orderer1pw`. Then, select the <b>Administrator Certificate (from MSP)</b>, `Orderer MSP`, from the drop-down list and click <b>Next</b>.
@@ -234,7 +234,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/create-orderer.gif">
+  <img src="docs/doc-gifs/createorderer.gif">
 </p>
 <br>
 
@@ -246,7 +246,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/add-org-orderer.gif">
+  <img src="docs/doc-gifs/addorg-orderer.gif">
 </p>
 <br>
 
@@ -258,14 +258,15 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - Click <b>Create channel</b>.
   - Give the channel a name, `mychannel`.
   - Select the orderer you created, `Orderer` from the orderers drop-down list.
+  - Select the channel member under the Organization section, This should be `Org1 MSP (org1msp)`.
   - Select the MSP identifying the organization of the channel creator from the drop-down list. This should be `Org1 MSP (org1msp)`.
-  - Associate available identity as `Org1 Admin`.
   - Click <b>Add</b> next to your organization. Make your organization an <b>Operator</b>.
-  - Click <b>Create</b>.
+  - Select identity under the Channel creator organization section as `Org1 Admin`.
+  - Click <b>Create channel</b>.
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/create-channel.gif">
+  <img src="docs/doc-gifs/createchannel.gif">
 </p>
 <br>
 
@@ -275,11 +276,11 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - Select your `Orderer` and click <b>Next</b>.
   - Enter the name of the channel you just created. `mychannel` and click <b>Next</b>.
   - Select which peers you want to join the channel, click `Peer Org1` .
-  - Click <b>Submit</b>.
+  - Click <b>Join Channel</b>.
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/join-channel.gif">
+  <img src="docs/doc-gifs/joinchannel.gif">
 </p>
 <br>
 
@@ -303,13 +304,13 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 * #### Instantiate smart contract
   - On the smart contracts tab, find the smart contract from the list installed on your peers and click <b>Instantiate</b> from the overflow menu on the right side of the row.
   - On the side panel that opens, select the channel, `mychannel` to instantiate the smart contract on. Click <b>Next</b>.
-  - Select the organization members to be included in the policy, `org1msp`.  Click <b>Next</b>.
+  - Select the organization members to be included in the policy, `org1msp`.  Click <b>Next</b> twice.
   - Give <b>Function name</b> of `initLedger` and leave <b>Arguments</b> blank.
   - Click <b>Instantiate</b>.
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/instantiate-smart-contract.gif">
+  <img src="docs/doc-gifs/instantiatesmart-contract.gif">
 </p>
 <br>
 
@@ -324,15 +325,15 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/connect-with-sdk.gif">
+  <img src="docs/doc-gifs/connectwith-sdk.gif">
 </p>
 <br>
 
 * #### Create an application admin
-  - Go to the <b>Nodes</b> tab on the left bar, and under <b>Certifacte Authorities</b>, choose your organization CA, <b>Org1 CA</b>.
+  - Go to the <b>Nodes</b> tab on the left bar, and under <b>Certificate Authorities</b>, choose your organization CA, <b>Org1 CA</b>.
   - Click on <b>Register user</b>.
   - Give an <b>Enroll ID</b> and <b>Enroll Secret</b> to administer your application users, `app-admin` and `app-adminpw`.
-  - Choose `client` as <b>Type</b> and any organization for affiliation.  We can pick `org1` to be consistent.
+  - Choose `client` as <b>Type</b>.
   - You can leave the <b>Maximum enrollments</b> blank.
   - Under <b>Attributes</b>, click on <b>Add attribute</b>.  Give attribute as `hf.Registrar.Roles` = `*`.  This will allow this identity to act as registrar and issues identities for our app.  Click <b>Add-attribute</b>.
   - Click <b>Register</b>.
@@ -417,18 +418,18 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
   - Start the client:
     ```bash
-    npm run serve
+    npm start
     ```
 
-You can find the app running at http://localhost:8080/
+You can find the app running at http://localhost:4200/
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/application.gif">
+  <img src="docs/doc-gifs/application-UI.gif">
 </p>
 <br>
 
-You can go to the IBM Blockchain Platform v2 console to monitor your users and get information on your channel including the blocks added.
+You can go to the IBM Blockchain Platform console to monitor your users and get information on your channel including the blocks added.
 
 <br>
 <p align="center">
