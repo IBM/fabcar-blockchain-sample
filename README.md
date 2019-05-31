@@ -138,7 +138,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/createpeerorg1-ca.gif">
+  <img src="docs/doc-gifs/createpeerorg1-CA.gif">
 </p>
 <br>
 
