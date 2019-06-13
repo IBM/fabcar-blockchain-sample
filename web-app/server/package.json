@@ -15,5 +15,6 @@
     "fabric-network": "~1.4.0",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.9",
+    "handlebars":"4.1.2",
     "tar": ">=2.2.2"  }
 }
