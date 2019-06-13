@@ -439,9 +439,9 @@ You can go to the IBM Blockchain Platform console to monitor your users and get 
 
 
 ## Troubleshooting
-* If you encounter an error ``discover error: access denied``, you need to set the `gatewayDiscovery` properly in your `config.json` file. This is <b>REQUIRED</b>b>  You must set it as follows to connect to IBP:
+* If you encounter an error ``discover error: access denied``, you need to set the `gatewayDiscovery` properly in your `config.json` file. This is <b>REQUIRED</b>  You must set it as follows to connect to IBP:
 
-                 "gatewayDiscovery":`enabled: true, asLocalhost: false }`
+                 `"gatewayDiscovery": { "enabled": true, "asLocalhost": false }`
 
 ## Links
 * [Hyperledger Fabric Docs](http://hyperledger-fabric.readthedocs.io/en/latest/)
