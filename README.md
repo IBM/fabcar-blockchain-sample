@@ -23,8 +23,8 @@ The developer uses the IBM Blockchain Platform Extension for VS Code to:
 1. The Blockchain Operator sets up the IBM Blockchain Platform service
 2. The IBM Blockchain Platform enables to create a Hyperledger Fabric network onto a IBM Kubernetes Service, allowing to install and instantiate the Fabcar smart contract on the network
 3. The Node.js application server uses the Fabic sdk to interact with the deployed network on IBM Blockchain Platform and creates APIs for a web client
-4. The Vue.js client uses the Node.js application API to interact with the network
-5. The User interacts with the Fabcar Vue.js web interface to update and query the blockchain ledger and state
+4. The Angular client uses the Node.js application API to interact with the network
+5. The User interacts with the Fabcar Angular web interface to update and query the blockchain ledger and state
 
 
 # Included components
@@ -35,8 +35,8 @@ The developer uses the IBM Blockchain Platform Extension for VS Code to:
 ## Featured technologies
 + [Hyperledger Fabric v1.4](https://hyperledger-fabric.readthedocs.io) is a platform for distributed ledger solutions, underpinned by a modular architecture that delivers high degrees of confidentiality, resiliency, flexibility, and scalability.
 + [Node.js](https://nodejs.org) is an open source, cross-platform JavaScript run-time environment that executes server-side JavaScript code.
-+ [Express.js](https://expressjs.com/) is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications
-+ [Vue.js](https://getbootstrap.com/) is an open source toolkit for developing with HTML, CSS, and JavaScript.
++ [Express.js](https://expressjs.com/) is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
++ [Angular.io](https://angular.io/) is a front-end framework for building web applications.
 
 ## Running the application
 
