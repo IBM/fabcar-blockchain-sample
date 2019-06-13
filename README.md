@@ -22,14 +22,14 @@ The developer uses the IBM Blockchain Platform Extension for VS Code to:
 
 1. The Blockchain Operator sets up the IBM Blockchain Platform service
 2. The IBM Blockchain Platform enables to create a Hyperledger Fabric network onto a IBM Kubernetes Service, allowing to install and instantiate the Fabcar smart contract on the network
-3. The Node.js application server uses the Fabic sdk to interact with the deployed network on IBM Blockchain Platform and creates APIs for a web client
+3. The Node.js application server uses the Fabric sdk to interact with the deployed network on IBM Blockchain Platform and creates APIs for a web client
 4. The Angular client uses the Node.js application API to interact with the network
 5. The User interacts with the Fabcar Angular web interface to update and query the blockchain ledger and state
 
 
 # Included components
 *	[IBM Blockchain Platform](https://console.bluemix.net/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) gives you total control of your blockchain network with a user interface that can simplify and accelerate your journey to deploy and manage blockchain components on the IBM Cloud Kubernetes Service.
-*	[IBM Cloud Kubernetes Service](https://www.ibm.com/cloud/container-service) gcreates a cluster of compute hosts and deploys highly available containers. A Kubernetes cluster lets you securely manage the resources that you need to quickly deploy, update, and scale applications.
+*	[IBM Cloud Kubernetes Service](https://www.ibm.com/cloud/container-service) creates a cluster of compute hosts and deploys highly available containers. A Kubernetes cluster lets you securely manage the resources that you need to quickly deploy, update, and scale applications.
 * [IBM Blockchain Platform Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform) is designed to assist users in developing, testing, and deploying smart contracts -- including connecting to Hyperledger Fabric environments.
 
 ## Featured technologies
