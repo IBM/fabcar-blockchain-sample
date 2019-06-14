@@ -38,16 +38,16 @@ The developer uses the IBM Blockchain Platform Extension for VS Code to:
 + [Express.js](https://expressjs.com/) is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 + [Angular.io](https://angular.io/) is a front-end framework for building web applications.
 
-## Running the application
-
-Follow these steps to set up and run this code pattern. The steps are described in detail below.
-
 ### Prerequisites
 
 - [IBM Cloud account](https://cloud.ibm.com/registration/?target=%2Fdashboard%2Fapps)
 - [Node v8.x or greater and npm v5.x or greater](https://nodejs.org/en/download/)
 - [VSCode version 1.26 or greater](https://code.visualstudio.com)
 - [IBM Blockchain Platform Extension for VSCode](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform)
+
+## Running the application
+
+Follow these steps to set up and run this code pattern. The steps are described in detail below.
 
 ### Steps
 
