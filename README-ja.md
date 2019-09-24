@@ -125,7 +125,7 @@ IBM Blockchain Platform拡張機能を使用して、Fabcarスマートコント
 
 ## 4. ネットワークのビルド
 
-IBM Blockchain Platformが提供するネットワークを構築します [ドキュメント]（https://console.bluemix.net/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network）。 これには、独自のMSPとCA（認証局）を持つ単一のピア組織と、独自のMSPとCAを持つ注文者組織とのチャネルの作成が含まれます。 ピアを展開してノードを操作するために、それぞれのIDを作成します。
+IBM Blockchain Platformが提供するネットワークを構築します [ドキュメント](https://console.bluemix.net/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network) 。 これには、独自のMSPとCA（認証局）を持つ単一のピア組織と、独自のMSPとCAを持つ注文者組織とのチャネルの作成が含まれます。 ピアを展開してノードを操作するために、それぞれのIDを作成します。
 
 
 ### 組織とブロックチェーンへのエントリポイントを作成します
