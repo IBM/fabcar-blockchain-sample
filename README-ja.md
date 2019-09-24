@@ -239,11 +239,11 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
 <br>
 
 * #### トランザクションのために、順序付けサービスにコンソーシアムメンバーとして組織を追加します
-Add organization as Consortium Member on the orderer to transact
-  - Navigate to the <b>Nodes</b> tab, and click on the <b>Orderer</b> that we created.
-  - Under <b>Consortium Members</b>, click <b>Add organization</b>.
-  - From the drop-down list, select `Org1 MSP`, as this is the MSP that represents the peer's organization org1.
-  - Click <b>Submit</b>.
+注文者に組織をコンソーシアムメンバーとして追加して取引します
+  - <b>ノード</b>タブに移動し、作成した<b>注文者</b>をクリックします。
+  - <b>コンソーシアムメンバー</b>で、<b>組織の追加</b>をクリックします。
+  - ドロップダウンリストから `Org1 MSP` を選択します。これは、ピアの組織org1を表すMSPであるためです。
+  - <b>送信</b>をクリックします。
 
 <br>
 <p align="center">
@@ -260,10 +260,10 @@ Add organization as Consortium Member on the orderer to transact
   - チャネル名に `mychannel` を設定します。
   - 作成した順序付けサービス `Orderer` を順序付けサービスリストから選択します。
   - 組織セクションで、組織の下のチャネルメンバー `Org1 MSP (org1msp)` を選択します。
-  - Select the MSP identifying the organization of the channel creator from the drop-down list. This should be `Org1 MSP (org1msp)`.
-  - Click <b>Add</b> next to your organization. Make your organization an <b>Operator</b>.
-  - Select identity under the Channel creator organization section as `Org1 Admin`.
-  - Click <b>Create channel</b>.
+  - ドロップダウンリストからチャネル作成者の組織を識別するMSPを選択します。 これは `Org1 MSP (org1msp)` である必要があります。
+  - 組織の横にある<b>追加</b>をクリックします。 組織を<b>Operator</b>にします。
+  - 「チャネル作成者の組織」セクションで `Org1 Admin` としてIDを選択します。
+  - <b>チャネルの作成</b>をクリックします。
 
 <br>
 <p align="center">
@@ -273,11 +273,11 @@ Add organization as Consortium Member on the orderer to transact
 
 
 * #### Join your peer to the channel
-  - Click <b>Join channel</b> to launch the side panels.
-  - Select your `Orderer` and click <b>Next</b>.
-  - Enter the name of the channel you just created. `mychannel` and click <b>Next</b>.
-  - Select which peers you want to join the channel, click `Peer Org1` .
-  - Click <b>Join Channel</b>.
+  - <b>チャネルに参加</b>をクリックして、サイドパネルを起動します。
+  - `Orderer` を選択して、<b>次へ</b>をクリックします。
+  - 作成したばかりのチャネルの名前を入力します。 `mychannel` をクリックし、<b>次へ</b>をクリックします。
+  - チャネルに参加したいピアを選択し、 `Peer Org1` をクリックします。
+  - <b>チャネルに参加</b>をクリックします。
 
 <br>
 <p align="center">
@@ -304,7 +304,7 @@ Add organization as Consortium Member on the orderer to transact
 
 * #### スマートコントラクトをインスタンス化します
   - スマートコントラクトタブで、ピアにインストールされているリストからスマートコントラクトを見つけ、行の右側のオーバーフローメニューから<b>インスタンス化</b>をクリックします。
-  - 開いたサイドパネルで、スマートコントラクトをインスタンス化するチャンネル `mychannel` を選択します。<b>次へ</b>をクリックします。
+  - 開いたサイドパネルで、スマートコントラクトをインスタンス化するチャネル `mychannel` を選択します。<b>次へ</b>をクリックします。
   - ポリシー`org1msp`に含める組織メンバーを選択します。 <b>次へ</b>を2回クリックします。
   - の<b>関数名</b>に `initLedger` を指定し、<b>引数</b>を空白のままにします。
   -　<b>インスタンス化</b>をクリックします。
@@ -356,7 +356,7 @@ Add organization as Consortium Member on the orderer to transact
     - 登録するユーザー名。
     - IBPに接続するために、ゲートウェイ検出を `{enabled：true、asLocalhost：false}`に更新します。
 
-> the current default setup is to connect to a local fabric instance from VS Code
+> デフォルト設定では、VS Codeからローカルファブリックインスタンスに接続するようになっています。
 
 ```js
 {
@@ -373,56 +373,56 @@ Add organization as Consortium Member on the orderer to transact
 
 ## 7. アプリケーションの実行
 
-* #### Enroll admin
-  - First, navigate to the `web-app` directory, and install the node dependencies.
+* #### 管理者を登録する
+  - 最初に `web-app` ディレクトリに移動し、ノードの依存関係をインストールします。
     ```bash
     cd web-app/server
     npm install
     ```
 
-  - Run the `enrollAdmin.js` script
+  - `enrollAdmin.js` を実行します。
     ```bash
     node enrollAdmin.js
     ```
 
-  - You should see the following in the terminal:
+  - ターミナルに次のように表示されれば成功です。
     ```bash
     msg: Successfully enrolled admin user app-admin and imported it into the wallet
     ```
 
-* #### Register User
-  - Run the `registerUser.js` script.
+* #### ユーザーを登録する 
+  - `registerUser.js` を実行します。
     ```bash
     node registerUser.js
     ```
 
-  - You should see the following in the terminal:
+  - ターミナルに次のように表示されれば成功です。
     ```bash
     Successfully registered and enrolled admin user user1 and imported it into the wallet
     ```
 
 
 
-* #### Start the application server
-  - From the `server` directory, start the server.
+* #### アプリケーションサーバーの起動
+  - `server` ディレクトリからサーバーを開始します。
 
     ```bash
     npm start
     ```
 
-* #### Start the web client
-  - In a new terminal, open the web client folder and install the dependencies.
+* #### Webクライアントの開始
+  - 新しいターミナルで、Webクライアントフォルダーを開き、依存関係をインストールします。
     ```bash
     cd web-app/client
     npm install
     ```
 
-  - Start the client:
+  - クライアントアプリを開始します。
     ```bash
     npm start
     ```
 
-You can find the app running at http://localhost:4200/
+http://localhost:4200/ にアクセスし、実行されているアプリを確認することができます。
 
 <br>
 <p align="center">
@@ -430,7 +430,7 @@ You can find the app running at http://localhost:4200/
 </p>
 <br>
 
-You can go to the IBM Blockchain Platform console to monitor your users and get information on your channel including the blocks added.
+IBM Blockchain Platformコンソールにアクセスしてユーザーを監視し、追加されたブロックを含むチャンネルに関する情報を取得できます。
 
 <br>
 <p align="center">
@@ -439,16 +439,16 @@ You can go to the IBM Blockchain Platform console to monitor your users and get 
 <br>
 
 
-## Troubleshooting
+## トラブルシューティング
 * If you encounter an error ``discover error: access denied``, you need to set the `gatewayDiscovery` properly in your `config.json` file. This is <b>REQUIRED</b>  You must set it as follows to connect to IBP:
 
                  `"gatewayDiscovery": {"enabled": true, "asLocalhost": false }`
 
-## Links
+## リンク
 * [Hyperledger Fabric Docs](http://hyperledger-fabric.readthedocs.io/en/latest/)
 * [IBM Code Patterns for Blockchain](https://developer.ibm.com/patterns/category/blockchain/)
 
-## License
+## ライセンス（英語）
 This code pattern is licensed under the Apache Software License, Version 2. Separate third-party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 [Apache Software License (ASL) FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
