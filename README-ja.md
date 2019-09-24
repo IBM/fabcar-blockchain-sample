@@ -11,7 +11,7 @@
 * Hyperledger Fabric SDKを使用してNode.jsサーバーを開発し、展開されたネットワークと対話する
 * WebアプリのAngularフロントエンドを作成して、ネットワークとインターフェイスする
 
-# Architecture flow
+# アプリケーション構成図
 
 <p align="center">
   <img src="docs/doc-images/arch-flow.png">
@@ -252,14 +252,14 @@ Add organization as Consortium Member on the orderer to transact
 <br>
 
 
-### チャネルを作成しJoin[します
+### チャネルを作成しJoinします
 
 * #### チャネルを作成します
-  - Navigate to the <b>Channels</b> tab in the left navigation.
-  - Click <b>Create channel</b>.
-  - Give the channel a name, `mychannel`.
-  - Select the orderer you created, `Orderer` from the orderers drop-down list.
-  - Select the channel member under the Organization section, This should be `Org1 MSP (org1msp)`.
+  - 左側のナビゲーションタブから<b>チャネル</b>を選択します。 
+  - <b>チャネルの作成</b>をクリックします。
+  - チャネル名に `mychannel` を設定します。
+  - 作成した順序付けサービス `Orderer` を順序付けサービスリストから選択します。
+  - 組織セクションで、組織の下のチャネルメンバー `Org1 MSP (org1msp)` を選択します。
   - Select the MSP identifying the organization of the channel creator from the drop-down list. This should be `Org1 MSP (org1msp)`.
   - Click <b>Add</b> next to your organization. Make your organization an <b>Operator</b>.
   - Select identity under the Channel creator organization section as `Org1 Admin`.
@@ -272,7 +272,7 @@ Add organization as Consortium Member on the orderer to transact
 <br>
 
 
-* #### チャネルへJoinします
+* #### Join your peer to the channel
   - Click <b>Join channel</b> to launch the side panels.
   - Select your `Orderer` and click <b>Next</b>.
   - Enter the name of the channel you just created. `mychannel` and click <b>Next</b>.
