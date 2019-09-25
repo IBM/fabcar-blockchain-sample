@@ -38,9 +38,10 @@ VS Code用のIBM Blockchain Platform Extensionを使用して以下を行いま�
 + [Angular.io](https://angular.io/) 
 
 ### 事前準備
-
+node v12.10.0
+npm v6.11.3
 - [IBM Cloud account](https://cloud.ibm.com/registration/?target=%2Fdashboard%2Fapps)
-- [Node v8.x or greater and npm v5.x or greater](https://nodejs.org/en/download/)
+- [Node v12.x or greater and npm v6.x or greater](https://nodejs.org/en/download/)
 - [VSCode version 1.26 or greater](https://code.visualstudio.com)
 - [IBM Blockchain Platform Extension for VSCode](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform)
 
@@ -351,7 +352,7 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
     - ダウンロードした接続jsonファイル名。
     - アプリ管理者の<b> enroll id </b>および<b> enroll secret </b>。以前に`app-admin`および`app-adminpw`として提供しました。
     - `org1msp`として提供したorgMSP ID。
-    - `組織`->`org1msp`-> certificateAuthoritiesの下の接続jsonファイルにあるcaName。これはIPアドレスとポートのようなものです。
+    - `organizations`->`org1msp`-> certificateAuthoritiesの下の接続jsonファイルにあるcaName。これはIPアドレスとポートのようなものです。
     - 登録するユーザー名。
     - IBPに接続するために、ゲートウェイ検出を `{enabled：true、asLocalhost：false}`に更新します。
 
