@@ -24,7 +24,7 @@ app.post('/createCar', (req, res) => {
   network.queryAllCars()
     .then((response) => {
       console.log(response);
-      var carsRecord = JSON.parse(JSON.parse(response));
+      var carsRecord = JSON.parse(response);
       var numCars = carsRecord.length;
       var newKey = 'CAR' + numCars;           
       network.createCar(newKey, req.body.make, req.body.model, req.body.color, req.body.owner)
