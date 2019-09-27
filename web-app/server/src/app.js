@@ -19,6 +19,15 @@ app.get('/queryAllCars', (req, res) => {
       });
 })
 
+app.get('/queryCar', (req, res) => {
+  console.log(req.query.key)
+  network.queryCar(req.query.key)
+    .then((response) => {      
+        var carsRecord = JSON.parse(response);        
+        res.send(carsRecord)
+      });
+})
+
 app.post('/createCar', (req, res) => { 
   console.log(req.body);
   network.queryAllCars()

@@ -118,7 +118,7 @@ exports.changeCarOwner = async function(key, newOwner) {
 // query all cars transaction
 exports.queryAllCars = async function() {
     try {
-        console.log('Jake')
+        console.log('queryAllCars');
 
         var response = {};
 
@@ -149,7 +149,53 @@ exports.queryAllCars = async function() {
         // Evaluate the specified transaction.
         // queryAllCars transaction - requires no arguments, ex: ('queryAllCars')
         const result = await contract.evaluateTransaction('queryAllCars');
-        console.log('check6');
+        //console.log('check6');
+        //console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
+
+        return result;
+
+    } catch (error) {
+        console.error(`Failed to evaluate transaction: ${error}`);
+        response.error = error.message;
+        return response;
+    }
+}
+
+// query the car identified by key
+exports.queryCar = async function(key) {
+    try {
+        console.log('queryCar');
+
+        var response = {};
+
+        // Create a new file system based wallet for managing identities.
+        const walletPath = path.join(process.cwd(), '/wallet');
+        const wallet = new FileSystemWallet(walletPath);
+        console.log(`Wallet path: ${walletPath}`);
+
+        // Check to see if we've already enrolled the user.
+        const userExists = await wallet.exists(userName);
+        if (!userExists) {
+            console.log('An identity for the user ' + userName + ' does not exist in the wallet');
+            console.log('Run the registerUser.js application before retrying');
+            response.error = 'An identity for the user ' + userName + ' does not exist in the wallet. Register ' + userName + ' first';
+            return response;            
+        }
+
+        // Create a new gateway for connecting to our peer node.
+        const gateway = new Gateway();
+        await gateway.connect(ccp, { wallet, identity: userName, discovery: gatewayDiscovery });
+
+        // Get the network (channel) our contract is deployed to.
+        const network = await gateway.getNetwork('mychannel');
+
+        // Get the contract from the network.
+        const contract = network.getContract('fabcar');
+
+        // Evaluate the specified transaction.
+        // queryCar transaction - requires 1 argument, ex: 'queryCar('CAR0')'
+        console.log(key)
+        const result = await contract.evaluateTransaction('queryCar', key);
         //console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
 
         return result;

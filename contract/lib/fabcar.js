@@ -137,6 +137,26 @@ class FabCar extends Contract {
         }
     }
 
+    async queryCar(ctx, key) {
+        console.log("Key is " + key);
+        if (res) {
+            const res = await ctx.stub.getState(key);
+            console.log("Result is\n" + JSON.parse(res.toString()));
+            let Record;
+            try {
+                Record = JSON.parse(res.toString('utf8'));
+            } catch (err) {
+                console.log(err);
+                Record = res.toString('utf8');
+            }
+            return JSON.stringify([{ key, Record }]);
+        }
+        else{
+            console.err("Did not find the car with carNo " + key)
+            return [];
+        }
+    }
+
     async changeCarOwner(ctx, carNumber, newOwner) {
         console.info('============= START : changeCarOwner ===========');
 
