@@ -40,7 +40,7 @@ async function main() {
         // Check to see if we've already enrolled the admin user.
         const adminExists = await wallet.exists(appAdmin);
         if (!adminExists) {
-            console.log('An identity for the admin user "admin" does not exist in the wallet');
+            console.log('An identity for the admin user ' + appAdmin + ' does not exist in the wallet');
             console.log('Run the enrollAdmin.js application before retrying');
             return;
         }
@@ -52,7 +52,6 @@ async function main() {
         // Get the CA client object from the gateway for interacting with the CA.
         const ca = gateway.getClient().getCertificateAuthority();
         const adminIdentity = gateway.getCurrentIdentity();
-
         // Register the user, enroll the user, and import the new identity into the wallet.
         const secret = await ca.register({ affiliation: 'org1.department1', enrollmentID: userName, role: 'client' }, adminIdentity);
         const enrollment = await ca.enroll({ enrollmentID: userName, enrollmentSecret: secret });
@@ -61,7 +60,7 @@ async function main() {
         console.log('Successfully registered and enrolled admin user ' + userName + ' and imported it into the wallet');
 
     } catch (error) {
-        console.error('Failed to register user ' + userName + ': ${error}');
+        console.error('Failed to register user ' + userName + ': ' + error);
         process.exit(1);
     }
 }
