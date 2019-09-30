@@ -12,11 +12,11 @@ const path = require('path');
 const configPath = path.join(process.cwd(), 'config.json');
 const configJSON = fs.readFileSync(configPath, 'utf8');
 const config = JSON.parse(configJSON);
-var connection_file = config.connection_file;
-var appAdmin = config.appAdmin;
-var orgMSPID = config.orgMSPID;
-var userName = config.userName;
-var gatewayDiscovery = config.gatewayDiscovery;
+let connection_file = config.connection_file;
+let appAdmin = config.appAdmin;
+let orgMSPID = config.orgMSPID;
+let userName = config.userName;
+let gatewayDiscovery = config.gatewayDiscovery;
 
 const ccpPath = path.join(process.cwd(), connection_file);
 const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
@@ -33,7 +33,7 @@ async function main() {
         // Check to see if we've already enrolled the user.
         const userExists = await wallet.exists(userName);
         if (userExists) {
-            console.log('An identity for the user "user1" already exists in the wallet');
+            console.log('An identity for the user ' + userName + ' already exists in the wallet');
             return;
         }
 
@@ -57,7 +57,7 @@ async function main() {
         const enrollment = await ca.enroll({ enrollmentID: userName, enrollmentSecret: secret });
         const userIdentity = X509WalletMixin.createIdentity(orgMSPID, enrollment.certificate, enrollment.key.toBytes());
         wallet.import(userName, userIdentity);
-        console.log('Successfully registered and enrolled admin user ' + userName + ' and imported it into the wallet');
+        console.log('Successfully registered and enrolled the user ' + userName + ' and imported it into the wallet');
 
     } catch (error) {
         console.error('Failed to register user ' + userName + ': ' + error);

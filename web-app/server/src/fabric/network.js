@@ -1,7 +1,7 @@
 
 'use strict';
 
-const { FileSystemWallet, Gateway, X509WalletMixin } = require('fabric-network');
+const { FileSystemWallet, Gateway } = require('fabric-network');
 const fs = require('fs');
 const path = require('path');
 
@@ -10,9 +10,9 @@ const path = require('path');
 const configPath = path.join(process.cwd(), '/config.json');
 const configJSON = fs.readFileSync(configPath, 'utf8');
 const config = JSON.parse(configJSON);
-var connection_file = config.connection_file;
-var userName = config.userName;
-var gatewayDiscovery = config.gatewayDiscovery;
+let connection_file = config.connection_file;
+let userName = config.userName;
+let gatewayDiscovery = config.gatewayDiscovery;
 
 // connect to the connection file
 const ccpPath = path.join(process.cwd(), connection_file);
@@ -21,9 +21,8 @@ const ccp = JSON.parse(ccpJSON);
 
 // create car transaction
 exports.createCar = async function(key, make, model, color, owner) {
+    let response = {};
     try {
-
-        var response = {};
 
         // Create a new file system based wallet for managing identities.
         const walletPath = path.join(process.cwd(), '/wallet');
@@ -58,20 +57,19 @@ exports.createCar = async function(key, make, model, color, owner) {
         await gateway.disconnect();
 
         response.msg = 'createCar Transaction has been submitted';
-        return response;        
+        return response;
 
     } catch (error) {
         console.error(`Failed to submit transaction: ${error}`);
         response.error = error.message;
-        return response; 
+        return response;
     }
-}
+};
 
 // change car owner transaction
 exports.changeCarOwner = async function(key, newOwner) {
+    let response = {};
     try {
-
-        var response = {};
 
         // Create a new file system based wallet for managing identities.
         const walletPath = path.join(process.cwd(), '/wallet');
@@ -106,21 +104,21 @@ exports.changeCarOwner = async function(key, newOwner) {
         await gateway.disconnect();
 
         response.msg = 'changeCarOwner Transaction has been submitted';
-        return response;        
+        return response;
 
     } catch (error) {
         console.error(`Failed to submit transaction: ${error}`);
         response.error = error.message;
-        return response; 
+        return response;
     }
-}
+};
 
 // query all cars transaction
 exports.queryAllCars = async function() {
+
+    let response = {};
     try {
         console.log('queryAllCars');
-
-        var response = {};
 
         // Create a new file system based wallet for managing identities.
         const walletPath = path.join(process.cwd(), '/wallet');
@@ -133,7 +131,7 @@ exports.queryAllCars = async function() {
             console.log('An identity for the user ' + userName + ' does not exist in the wallet');
             console.log('Run the registerUser.js application before retrying');
             response.error = 'An identity for the user ' + userName + ' does not exist in the wallet. Register ' + userName + ' first';
-            return response;            
+            return response;
         }
 
         // Create a new gateway for connecting to our peer node.
@@ -159,14 +157,14 @@ exports.queryAllCars = async function() {
         response.error = error.message;
         return response;
     }
-}
+};
 
 // query the car identified by key
-exports.queryCar = async function(key) {
-    try {
-        console.log('queryCar');
+exports.querySingleCar = async function(key) {
 
-        var response = {};
+    let response = {};
+    try {
+        console.log('querySingleCar');
 
         // Create a new file system based wallet for managing identities.
         const walletPath = path.join(process.cwd(), '/wallet');
@@ -179,7 +177,7 @@ exports.queryCar = async function(key) {
             console.log('An identity for the user ' + userName + ' does not exist in the wallet');
             console.log('Run the registerUser.js application before retrying');
             response.error = 'An identity for the user ' + userName + ' does not exist in the wallet. Register ' + userName + ' first';
-            return response;            
+            return response;
         }
 
         // Create a new gateway for connecting to our peer node.
@@ -193,9 +191,9 @@ exports.queryCar = async function(key) {
         const contract = network.getContract('fabcar');
 
         // Evaluate the specified transaction.
-        // queryCar transaction - requires 1 argument, ex: 'queryCar('CAR0')'
-        console.log(key)
-        const result = await contract.evaluateTransaction('queryCar', key);
+        // queryCar transaction - requires 1 argument, ex: 'querySingleCar('CAR0')'
+        console.log(key);
+        const result = await contract.evaluateTransaction('querySingleCar', key);
         //console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
 
         return result;
@@ -205,4 +203,4 @@ exports.queryCar = async function(key) {
         response.error = error.message;
         return response;
     }
-}
+};
