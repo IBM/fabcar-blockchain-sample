@@ -112,6 +112,7 @@ class FabCar extends Contract {
         const iterator = await ctx.stub.getStateByRange(startKey, endKey);
 
         const allResults = [];
+        // eslint-disable-next-line no-constant-condition
         while (true) {
             const res = await iterator.next();
 
@@ -134,6 +135,26 @@ class FabCar extends Contract {
                 console.info(allResults);
                 return JSON.stringify(allResults);
             }
+        }
+    }
+
+    async querySingleCar(ctx, key) {
+        console.log('Key is ' + key);
+        const res = await ctx.stub.getState(key);
+        if (res){
+            console.log('Result is\n' + JSON.parse(res.toString()));
+            let Record;
+            try {
+                Record = JSON.parse(res.toString('utf8'));
+            } catch (err) {
+                console.log(err);
+                Record = res.toString('utf8');
+            }
+            return JSON.stringify([{ key, Record }]);
+        }
+        else{
+            console.err('Did not find the car with carNo ' + key);
+            return [];
         }
     }
 
