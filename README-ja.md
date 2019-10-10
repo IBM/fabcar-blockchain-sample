@@ -38,9 +38,8 @@ VS Code用のIBM Blockchain Platform Extensionを使用して以下を行いま�
 + [Angular.io](https://angular.io/) 
 
 ### 事前準備
-
 - [IBM Cloud account](https://cloud.ibm.com/registration/?target=%2Fdashboard%2Fapps)
-- [Node v8.x or greater and npm v5.x or greater](https://nodejs.org/en/download/)
+- [Node v10.x and npm v6.x or greater](https://nodejs.org/en/download/)
 - [VSCode version 1.26 or greater](https://code.visualstudio.com)
 - [IBM Blockchain Platform Extension for VSCode](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform)
 
@@ -125,7 +124,7 @@ IBM Blockchain Platform拡張機能を使用して、Fabcarスマートコント
 
 ## 4. ネットワークのビルド
 
-IBM Blockchain Platformが提供するネットワークを構築します [ドキュメント]（https://console.bluemix.net/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network）。 これには、独自のMSPとCA（認証局）を持つ単一のピア組織と、独自のMSPとCAを持つ注文者組織とのチャネルの作成が含まれます。 ピアを展開してノードを操作するために、それぞれのIDを作成します。
+IBM Blockchain Platformが提供するネットワークを構築します [ドキュメント](https://console.bluemix.net/docs/services/blockchain/howto/ibp-console-build-network.html#ibp-console-build-network) 。 これには、独自のMSPとCA（認証局）を持つ単一のピア組織と、独自のMSPとCAを持つ注文者組織とのチャネルの作成が含まれます。 ピアを展開してノードを操作するために、それぞれのIDを作成します。
 
 
 ### 組織とブロックチェーンへのエントリポイントを作成します
@@ -145,8 +144,9 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
 
 * #### CAを使用してIDを登録します
   - 作成した<b>Org1 CA</b>認証局を選択します。
-  - 最初に、組織`org1`の管理者を登録します。<b>ユーザーの登録</b>ボタンをクリックします。<b>登録ID</b>に `org1admin` を、<b>登録秘密事項</b>に ` org1adminpw` を指定し、<b>次へ</b>をクリックします。このIDの<b>Type</b>を `client` に設定し、ドロップダウンリストから関連組織のいずれかを選択します。<b>最大登録</b>および<b>属性の追加</b>フィールドは空白のままにします。
-   - 再度ピアのIDを作成するプロセスを行います。<b>ユーザーの登録</b>]ボタンをクリックします。<b>登録ID</b>に `peer1` を、<b>秘密の登録登録秘密事項</b>に ` peer1pw` を指定し、<b>次へ</b>をクリックします。このIDの<b>Type</b>を `peer` に設定し、ドロップダウンリストから関連組織のいずれかを選択します。<b>最大登録</b>および<b>属性の追加</b>フィールドは空白のままにします。
+  - 最初に、アイデンティティの関連付けを行います。<b>アイデンティティの関連付け</b>ボタンをクリックします。<b>登録ID</b>に `admin` を、<b>登録秘密事項</b>に `adminpw` を指定し、<b>アイデンティティの関連付け</b>をクリックします。
+  - 登録済みユーザーの表示画面になるので、組織`org1`の管理者を登録します。<b>ユーザーの登録</b>ボタンをクリックします。<b>登録ID</b>に `org1admin` を、<b>登録秘密事項</b>に ` org1adminpw` を指定し、<b>次へ</b>をクリックします。このIDの<b>Type</b>を `client` に設定し、ドロップダウンリストから関連組織のいずれかを選択します。<b>最大登録</b>および<b>属性の追加</b>フィールドは空白のままにします。
+   - 再度ピアのIDを作成するプロセスを行います。<b>ユーザーの登録</b>ボタンをクリックします。<b>登録ID</b>に `peer1` を、<b>秘密の登録登録秘密事項</b>に ` peer1pw` を指定し、<b>次へ</b>をクリックします。このIDの<b>Type</b>を `peer` に設定し、<b>最大登録</b>および<b>属性の追加</b>フィールドは空白のままにします。
 
 <br>
 <p align="center">
@@ -173,10 +173,10 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
   - <b>ノード</b>ページで、<b>ピアの追加</b>をクリックします。
   - 新しいピアの作成の下の<b>IBM Cloud</b>および<b>次</b>をクリックします。
   - ピアに`Peer Org1`の<b>表示名</b>を付けます。
-  - 次の画面で、<b>認証機関</b>として`Org1 CA`を選択します。次に、ピア、`peer1`、`peer1pw`用に作成したピアIDの<b>登録ID </b>および<b>登録秘密事項</b>を指定します。次に、ドロップダウンリストから<b>管理者証明書（MSPから）</b>、`Org1 MSP`を選択し、<b>次</b>をクリックします。
+  - 次の画面で、<b>認証機関</b>として`Org1 CA`を選択します。次に、ピア用に作成したピアIDの<b>登録ID </b>および<b>登録秘密事項</b>を `peer1`、`peer1pw` で指定します。次に、ドロップダウンリストから<b>管理者証明書（MSPから）</b>、`Org1 MSP`を選択し、<b>次</b>をクリックします。
   - <b>TLS登録ID</b>に、`admin`、および<b>TLS登録秘密事項</b>に、`adminpw`を指定します。作成時に指定した登録IDと登録秘密事項と同じです CA。 <b> TLS CSRホスト名</b>は空白のままにします。
   - 最後のサイドパネルでは、<b>IDを関連付ける</b>ように求められ、ピアの管理者になります。ピア管理ID`Org1 Admin`を選択します。
-  - 概要を確認し、<b>送信</b>をクリックします。
+  - 概要を確認し、<b>ピアの追加</b>をクリックします。
 
 <br>
 <p align="center">
@@ -187,10 +187,10 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
 ### トランザクションの順序付け用ノードを作成します
 
 * #### 順序付けサービス組織CAを作成します
-  - Click <b>Add Certificate Authority</b>.
-  - Click <b>IBM Cloud</b> under <b>Create Certificate Authority</b> and <b>Next</b>.
-  - Give it a unique <b>Display name</b> of `Orderer CA`.  
-  - Specify an <b>Admin ID</b> of `admin` and <b>Admin Secret</b> of `adminpw`.
+  - <b>認証局の追加</b>をクリックします。
+  - <b>IBM Cloud認証局の作成</b>を選択し<b>次へ</b>をクリックします。
+  - <b>CA 表示名</b> に `Orderer CA` を入力します。  
+  - <b>CA 管理者登録 ID</b>に `admin` を、<b>CA 管理者登録機密事項</b>に `adminpw` を設定します。
 
 <br>
 <p align="center">
@@ -199,9 +199,10 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
 <br>
 
 * #### CAを使用して、順序付けサービスと順序付けサービス管理者IDを登録します
-  - <b>ノード</b>タブで、作成した<b>オーダCA </b>認証局を選択します。
-  - 最初に、組織の管理者を登録します。<b>ユーザーの登録</b>ボタンをクリックします。<b>登録ID </b>に`ordereradmin`を、<b>登録秘密事項</b>に`ordereradminpw`を指定します。 <b>次へ</b>をクリックします。このIDの<b> Type</b>を`client`に設定し、ドロップダウンリストから関連組織のいずれかを選択します。 <b>最大登録</b>および<b>属性の追加</b>フィールドは空白のままにします。
-  - 注文者のIDを作成するプロセスを繰り返します。 <b>ユーザーの登録</b>ボタンをクリックします。<b>登録ID</b>に`orderer1`を、<b>登録秘密事項</b>に` orderer1pw`を指定します。<b>次へ</b>をクリックします。 このIDの<b>Type </b>を`peer`に設定し、ドロップダウンリストから関連組織のいずれかを選択します。<b>最大登録</b>および[<b>属性の追加</b>フィールドは空白のままにします。
+  - <b>ノード</b>タブで、作成した<b>Orderer CA</b>認証局を選択します。
+  - 最初に、アイデンティティの関連付けを行います。<b>アイデンティティの関連付け</b>ボタンをクリックします。<b>登録ID</b>に `admin` を、<b>登録秘密事項</b>に `adminpw` を指定し、<b>アイデンティティの関連付け</b>をクリックします。
+  - 登録済みユーザーの表示画面になるので、組織の管理者を登録します。<b>ユーザーの登録</b>ボタンをクリックします。<b>登録ID </b>に`ordereradmin`を、<b>登録秘密事項</b>に`ordereradminpw`を指定します。 <b>次へ</b>をクリックします。このIDの<b> Type</b>を`client`に設定し、<b>最大登録</b>および<b>属性の追加</b>フィールドは空白のままにします。
+  - 注文者のIDを作成するプロセスを繰り返します。 <b>ユーザーの登録</b>ボタンをクリックします。<b>登録ID</b>に`orderer1`を、<b>登録秘密事項</b>に` orderer1pw`を指定します。<b>次へ</b>をクリックします。 このIDの<b>Type </b>を`peer`に設定し、ドロップダウンリストから関連組織のいずれかを選択します。<b>最大登録</b>および<b>属性の追加</b>フィールドは空白のままにします。
 
 <br>
 <p align="center">
@@ -213,7 +214,7 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
 * #### 順序付けサービス組織のMSP定義を作成します
   - 左側のナビゲーションの<b>組織</b>タブに移動し、<b>MSP定義の作成</b>をクリックします。
   - <b>MSP表示名</b>に`Orderer MSP`、<b> MSP ID </b>に`orderermsp`を入力します。
-  - <b>ルート認証局</b>の詳細の下で、組織のルートCAとして`注文者CA`を作成したピアCAを指定します。
+  - <b>ルート認証局</b>の詳細の下で、組織のルートCAとして、作成したピアCA `Orderer CA` を指定します。
   - 組織管理者に、`ordereradmin`を、<b>登録ID </b>に、`ordereradminpw`を指定します。 次に、<b>ID名</b>、`Orderer Admin`を指定します。
   - <b>生成</b>ボタンをクリックして、このIDを組織の管理者として登録し、IDをウォレットにエクスポートします。<b>エクスポート</b>をクリックして、管理者証明書をファイルシステムにエクスポートします。最後に、<b>MSP定義の作成</b>をクリックします。
 
@@ -225,12 +226,12 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
 
 * #### 順序付けサービスを作成します
   - <b>ノード</b>ページで、<b>順序付けサービスの追加</b>をクリックします。
-  - <b>IBM Cloud</b>をクリックして、<b>次へ</b>に進みます。
-  - ピアに`順序付けサービス`の<b>表示名</b>を付けます。
-  - 次の画面で、<b>認証機関</b>として`注文者CA`を選択します。次に、注文者、`orderer1`、`orderer1pw`用に作成したピアIDの<b>登録ID</b>と<b>登録秘密事項</b>を指定します。次に、ドロップダウンリストから<b>Administrator Certificate（from MSP）</b>である`Orderer MSP`を選択し、<b>Next</b>をクリックします。
+  - <b>IBM Cloud順序付けサービスの作成</b>をクリックして、<b>次へ</b>に進みます。
+  - ピアの<b>表示名</b>に `Orderer` を入力します。
+  - 次の画面で、<b>認証機関</b>として`Orderer CA`を選択します。次に、注文者用に作成したピアIDの<b>登録ID</b>と<b>登録秘密事項</b>を `orderer1`、`orderer1pw` で指定します。次に、ドロップダウンリストから<b>Administrator Certificate（from MSP）</b>である`Orderer MSP`を選択し、<b>次へ</b>をクリックします。
   - <b> TLS登録ID </b>に、`admin`、および<b>TLS登録秘密事項</b>に、` adminpw`を指定します。CA作成時に指定した登録IDと登録秘密事項と同じです。<b> TLS CSRホスト名</b>は空白のままにします。
   - 最後のサイドパネルでは、<b>IDを関連付ける</b>ように求められ、ピアの管理者になります。ピア管理者ID`Orderer Admin`を選択します。
-  - 概要を確認し、<b>送信</b>をクリックします。
+  - 概要を確認し、<b>順序付けサービスの追加</b>をクリックします。
 
 <br>
 <p align="center">
@@ -238,12 +239,12 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
 </p>
 <br>
 
-* #### トランザクションのために、順序付けサービスにコンソーシアムメンバーとして組織を追加します
-Add organization as Consortium Member on the orderer to transact
-  - Navigate to the <b>Nodes</b> tab, and click on the <b>Orderer</b> that we created.
-  - Under <b>Consortium Members</b>, click <b>Add organization</b>.
-  - From the drop-down list, select `Org1 MSP`, as this is the MSP that represents the peer's organization org1.
-  - Click <b>Submit</b>.
+* #### トランザクションのために、順序付けサービスにコンソーシアムメンバー（共同事業体メンバー）として組織を追加します
+注文者に組織をコンソーシアムメンバーとして追加して取引します
+  - <b>ノード</b>タブに移動し、作成した<b>Orderer</b>をクリックします。
+  - <b>共同事業体メンバー</b>で、<b>組織の追加</b>をクリックします。
+  - ドロップダウンリストから `Org1 MSP` を選択します。これは、ピアの組織org1を表すMSPであるためです。
+  - <b>組織の追加</b>をクリックします。
 
 <br>
 <p align="center">
@@ -260,10 +261,10 @@ Add organization as Consortium Member on the orderer to transact
   - チャネル名に `mychannel` を設定します。
   - 作成した順序付けサービス `Orderer` を順序付けサービスリストから選択します。
   - 組織セクションで、組織の下のチャネルメンバー `Org1 MSP (org1msp)` を選択します。
-  - Select the MSP identifying the organization of the channel creator from the drop-down list. This should be `Org1 MSP (org1msp)`.
-  - Click <b>Add</b> next to your organization. Make your organization an <b>Operator</b>.
-  - Select identity under the Channel creator organization section as `Org1 Admin`.
-  - Click <b>Create channel</b>.
+  - ドロップダウンリストからチャネル作成者の組織を識別するMSPを選択します。 これは `Org1 MSP (org1msp)` である必要があります。
+  - 組織の横にある<b>追加</b>をクリックします。 組織を<b>Operator</b>にします。
+  - チャネル作成者の組織セクションで、<b>チャネル作成者の MSP</b>に`Org1 MSP (org1msp)` を、<b>アイデンティティ</b>に `Org1 Admin` を選択します。
+  - <b>チャネルの作成</b>をクリックします。
 
 <br>
 <p align="center">
@@ -272,12 +273,9 @@ Add organization as Consortium Member on the orderer to transact
 <br>
 
 
-* #### Join your peer to the channel
-  - Click <b>Join channel</b> to launch the side panels.
-  - Select your `Orderer` and click <b>Next</b>.
-  - Enter the name of the channel you just created. `mychannel` and click <b>Next</b>.
-  - Select which peers you want to join the channel, click `Peer Org1` .
-  - Click <b>Join Channel</b>.
+* #### ピアをチャネルへ参加させます
+  - 作成した<b>mychannel</b>のタイルをクリックして、サイドパネルを起動します。
+  - `Peer Org1(org1msp)` を選択して、 `チャネルへの結合` をクリックします。
 
 <br>
 <p align="center">
@@ -304,10 +302,10 @@ Add organization as Consortium Member on the orderer to transact
 
 * #### スマートコントラクトをインスタンス化します
   - スマートコントラクトタブで、ピアにインストールされているリストからスマートコントラクトを見つけ、行の右側のオーバーフローメニューから<b>インスタンス化</b>をクリックします。
-  - 開いたサイドパネルで、スマートコントラクトをインスタンス化するチャンネル `mychannel` を選択します。<b>次へ</b>をクリックします。
-  - ポリシー`org1msp`に含める組織メンバーを選択します。 <b>次へ</b>を2回クリックします。
-  - の<b>関数名</b>に `initLedger` を指定し、<b>引数</b>を空白のままにします。
-  -　<b>インスタンス化</b>をクリックします。
+  - 開いたサイドパネルで、スマートコントラクトをインスタンス化するチャネル `mychannel` を選択します。<b>次へ</b>をクリックします。
+  - ポリシーに、組織メンバー `org1msp` を選択します。 <b>次へ</b>を2回クリックします。
+  - <b>機能名</b>に `initLedger` を指定し、<b>引数</b>を空白のままにします。
+  -　<b>スマートコントラクトのインスタンス化</b>をクリックします。
 
 <br>
 <p align="center">
@@ -318,9 +316,9 @@ Add organization as Consortium Member on the orderer to transact
 ## 6. アプリケーションのネットワークへの接続
 
 * #### 接続プロファイルを介してSDKに接続します
-  - Instantiated Smart Contractの下で、行の右側のオーバーフローメニューから[Connect with SDK]をクリックします。
+  - <b>インスタンス化されたスマート・コントラクト</b>の下で、行の右側のオーバーフローメニューから `SDKを使用した接続` をクリックします。
   - <b>接続用のMSP</b>のドロップダウンから`org1msp`を選択します。
-  - <b>証明書機関</b>ドロップダウンの[Org1 CA]から選択します。
+  - <b>認証局</b>ドロップダウンから `Org1 CA` を選択します。
   - 下にスクロールして<b>接続プロファイルのダウンロード</b>をクリックして、接続プロファイルをダウンロードします。これにより、すぐに接続を確立するために使用する接続JSONがダウンロードされます。
   - ダウンロードが完了したら、<b>閉じる</b>をクリックします。
 
@@ -331,13 +329,13 @@ Add organization as Consortium Member on the orderer to transact
 <br>
 
 * #### アプリ管理者を作成します
-  - 左側のバーの<b>ノード</b>タブに移動し、<b>証明書機関</b>で組織のCAである<b>Org1 CA</b>を選択します。
+  - 左側のバーの<b>ノード</b>タブに移動し、<b>認証局</b>で組織のCAである<b>Org1 CA</b>を選択します。
   - <b>ユーザーの登録</b>をクリックします。
-  - <b>Enroll ID</b>と<b>Enroll Secret</b>を指定して、アプリケーションユーザーの `app-admin`と` app-adminpw`を管理します。
-  - <b>タイプ</b>に<クライアント>を選択します。
+  - <b>登録ID</b>と<b>登録機密事項</b>に `app-admin` と `app-adminpw` を指定します。
+  - <b>タイプ</b>に `client` を選択します。
   - <b>最大登録数</b>は空白のままでかまいません。
   - <b>属性</b>で、<b>属性の追加</b>をクリックします。属性を  `hf.Registrar.Roles` = `*`　として指定します。 これにより、このIDがレジストラとして機能し、アプリのIDが発行されます。<b>属性の追加</b>をクリックします。
-  - <b>登録</b>]をクリックします。
+  - <b>登録</b>をクリックします。
 
 <br>
 <p align="center">
@@ -352,11 +350,11 @@ Add organization as Consortium Member on the orderer to transact
     - ダウンロードした接続jsonファイル名。
     - アプリ管理者の<b> enroll id </b>および<b> enroll secret </b>。以前に`app-admin`および`app-adminpw`として提供しました。
     - `org1msp`として提供したorgMSP ID。
-    - `組織`->`org1msp`-> certificateAuthoritiesの下の接続jsonファイルにあるcaName。これはIPアドレスとポートのようなものです。
+    - `organizations`->`org1msp`-> certificateAuthoritiesの下の接続jsonファイルにあるcaName。これはIPアドレスとポートのようなものです。
     - 登録するユーザー名。
     - IBPに接続するために、ゲートウェイ検出を `{enabled：true、asLocalhost：false}`に更新します。
 
-> the current default setup is to connect to a local fabric instance from VS Code
+> デフォルト設定では、VS Codeからローカルファブリックインスタンスに接続するようになっています。
 
 ```js
 {
@@ -373,56 +371,53 @@ Add organization as Consortium Member on the orderer to transact
 
 ## 7. アプリケーションの実行
 
-* #### Enroll admin
-  - First, navigate to the `web-app` directory, and install the node dependencies.
+* #### 管理者を登録する
+  - 最初に `web-app` ディレクトリに移動し、ノードの依存関係をインストールします。
     ```bash
     cd web-app/server
     npm install
     ```
 
-  - Run the `enrollAdmin.js` script
+  - `enrollAdmin.js` を実行します。
     ```bash
     node enrollAdmin.js
     ```
 
-  - You should see the following in the terminal:
+  - ターミナルに次のように表示されれば成功です。
     ```bash
     msg: Successfully enrolled admin user app-admin and imported it into the wallet
     ```
 
-* #### Register User
-  - Run the `registerUser.js` script.
+* #### ユーザーを登録する 
+  - `registerUser.js` を実行します。
     ```bash
     node registerUser.js
     ```
 
-  - You should see the following in the terminal:
+  - ターミナルに次のように表示されれば成功です。
     ```bash
     Successfully registered and enrolled admin user user1 and imported it into the wallet
     ```
 
-
-
-* #### Start the application server
-  - From the `server` directory, start the server.
-
+* #### アプリケーションサーバーの起動
+  - `server` ディレクトリからサーバーを開始します。
     ```bash
     npm start
     ```
 
-* #### Start the web client
-  - In a new terminal, open the web client folder and install the dependencies.
+* #### Webクライアントの開始
+  - 新しいターミナルで、Webクライアントフォルダーを開き、依存関係をインストールします。
     ```bash
     cd web-app/client
     npm install
     ```
 
-  - Start the client:
+  - クライアントアプリを開始します。
     ```bash
     npm start
     ```
 
-You can find the app running at http://localhost:4200/
+http://localhost:4200/ にアクセスし、実行されているアプリを確認することができます。
 
 <br>
 <p align="center">
@@ -430,7 +425,7 @@ You can find the app running at http://localhost:4200/
 </p>
 <br>
 
-You can go to the IBM Blockchain Platform console to monitor your users and get information on your channel including the blocks added.
+IBM Blockchain Platformコンソールにアクセスしてユーザーを監視し、追加されたブロックを含むチャンネルに関する情報を取得できます。
 
 <br>
 <p align="center">
@@ -439,16 +434,16 @@ You can go to the IBM Blockchain Platform console to monitor your users and get 
 <br>
 
 
-## Troubleshooting
+## トラブルシューティング
 * If you encounter an error ``discover error: access denied``, you need to set the `gatewayDiscovery` properly in your `config.json` file. This is <b>REQUIRED</b>  You must set it as follows to connect to IBP:
 
                  `"gatewayDiscovery": {"enabled": true, "asLocalhost": false }`
 
-## Links
+## リンク
 * [Hyperledger Fabric Docs](http://hyperledger-fabric.readthedocs.io/en/latest/)
 * [IBM Code Patterns for Blockchain](https://developer.ibm.com/patterns/category/blockchain/)
 
-## License
+## ライセンス（英語）
 This code pattern is licensed under the Apache Software License, Version 2. Separate third-party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 [Apache Software License (ASL) FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)

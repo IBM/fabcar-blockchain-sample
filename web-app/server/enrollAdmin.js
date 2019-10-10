@@ -13,11 +13,11 @@ const path = require('path');
 const configPath = path.join(process.cwd(), 'config.json');
 const configJSON = fs.readFileSync(configPath, 'utf8');
 const config = JSON.parse(configJSON);
-var connection_file = config.connection_file;
-var appAdmin = config.appAdmin;
-var appAdminSecret = config.appAdminSecret;
-var orgMSPID = config.orgMSPID;
-var caName = config.caName;
+let connection_file = config.connection_file;
+let appAdmin = config.appAdmin;
+let appAdminSecret = config.appAdminSecret;
+let orgMSPID = config.orgMSPID;
+let caName = config.caName;
 
 const ccpPath = path.join(process.cwd(), connection_file);
 const ccpJSON = fs.readFileSync(ccpPath, 'utf8');
@@ -37,7 +37,7 @@ async function main() {
         // Check to see if we've already enrolled the admin user.
         const adminExists = await wallet.exists(appAdmin);
         if (adminExists) {
-            console.log('An identity for the admin user "admin" already exists in the wallet');
+            console.log('An identity for the admin user ' + appAdmin + ' already exists in the wallet');
             return;
         }
 
@@ -48,7 +48,7 @@ async function main() {
         console.log('msg: Successfully enrolled admin user ' + appAdmin + ' and imported it into the wallet');
 
     } catch (error) {
-        console.error('Failed to enroll admin user ' + appAdmin + ': ${error}');
+        console.error('Failed to enroll admin user ' + appAdmin + ': ' + error);
         process.exit(1);
     }
 }
