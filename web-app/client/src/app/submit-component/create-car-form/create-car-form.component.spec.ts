@@ -9,8 +9,8 @@ describe('CreateCarFormComponent', () => {
   let component: CreateCarFormComponent;
   let fixture: ComponentFixture<CreateCarFormComponent>;
   let service: ApiService;
-  let spy: any;
-  let http: HttpClient;
+  const spy: any;
+  const http: HttpClient;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
