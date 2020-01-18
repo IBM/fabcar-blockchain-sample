@@ -1,3 +1,6 @@
+[日本語はこちら - Japanese version](./README-ja.md)
+
+
 [![Build Status](https://travis-ci.org/IBM/fabcar-blockchain-sample.svg?branch=master)](https://travis-ci.org/IBM/fabcar-blockchain-sample)
 
 # FabCar Blockchain Sample
