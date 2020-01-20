@@ -1,3 +1,6 @@
+[See this lab in English](./README.md)
+
+
 # FabCar Blockchain Sample
 
 >Hyperledger Fabric sample Fabcar on IBM Blockchain Platform
@@ -38,10 +41,8 @@ VS Code用のIBM Blockchain Platform Extensionを使用して以下を行いま�
 + [Angular.io](https://angular.io/) 
 
 ### 事前準備
-node v12.10.0
-npm v6.11.3
 - [IBM Cloud account](https://cloud.ibm.com/registration/?target=%2Fdashboard%2Fapps)
-- [Node v12.x or greater and npm v6.x or greater](https://nodejs.org/en/download/)
+- [Node v10.x and npm v6.x or greater](https://nodejs.org/en/download/)
 - [VSCode version 1.26 or greater](https://code.visualstudio.com)
 - [IBM Blockchain Platform Extension for VSCode](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform)
 
@@ -401,11 +402,8 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
     Successfully registered and enrolled admin user user1 and imported it into the wallet
     ```
 
-
-
 * #### アプリケーションサーバーの起動
   - `server` ディレクトリからサーバーを開始します。
-
     ```bash
     npm start
     ```
