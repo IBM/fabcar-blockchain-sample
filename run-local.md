@@ -189,7 +189,7 @@ From the exported directory, copy the contents of the `app-admin` folder to the 
 
 ### Update the config file
 
-Open the [config.json](../web-app/server/config.json) file. We need to update this file to indicate that we want to run the application locally.
+Open the [config.json](./web-app/server/config.json) file. We need to update this file to indicate that we want to run the application locally.
   
   - Specify the "connection_file" as `connection.json`.
   - Specify the "caName" as `ca.org1.example.com`.
