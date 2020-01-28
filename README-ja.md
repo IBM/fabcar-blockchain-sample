@@ -14,10 +14,11 @@
 * Hyperledger Fabric SDKを使用してNode.jsサーバーを開発し、展開されたネットワークと対話する
 * WebアプリのAngularフロントエンドを作成して、ネットワークとインターフェイスする
 
-# アプリケーション構成図
+
+## アプリケーション構成図
 
 <p align="center">
-  <img src="docs/doc-images/arch-flow.png">
+  <img src="https://user-images.githubusercontent.com/8854447/72905801-17b0a100-3cff-11ea-8b4d-0cd6df807aa6.png">
 </p>
 
 VS Code用のIBM Blockchain Platform Extensionを使用して以下を行います。
@@ -29,22 +30,28 @@ VS Code用のIBM Blockchain Platform Extensionを使用して以下を行いま�
 5.ユーザーは、Fabcar Angular Webインターフェースと対話して、ブロックチェーン台帳と状態を更新および照会します
 
 
-# 必要なコンポーネント
-*	[IBM Blockchain Platform](https://console.bluemix.net/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) 
+## 必要なコンポーネント
+
+*	[IBM Blockchain Platform](https://www.ibm.com/cloud/blockchain-platform) 
 *	[IBM Cloud Kubernetes Service](https://www.ibm.com/cloud/container-service) 
 * [IBM Blockchain Platform Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform)
 
+
 ## 利用技術
-+ [Hyperledger Fabric v1.4](https://hyperledger-fabric.readthedocs.io)
+
++ [Hyperledger Fabric v1.4](https://hyperledger-fabric.readthedocs.io/en/release-1.4/)
 + [Node.js](https://nodejs.org) 
 + [Express.js](https://expressjs.com/) 
 + [Angular.io](https://angular.io/) 
 
-### 事前準備
+
+## 事前準備
+
 - [IBM Cloud account](https://cloud.ibm.com/registration/?target=%2Fdashboard%2Fapps)
-- [Node v10.x and npm v6.x or greater](https://nodejs.org/en/download/)
-- [VSCode version 1.26 or greater](https://code.visualstudio.com)
+- [Node v8.x or v10.x and npm v6.x or greater](https://nodejs.org/en/download/)
+- [VSCode version 1.38.0 or greater](https://code.visualstudio.com)
 - [IBM Blockchain Platform Extension for VSCode](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform)
+
 
 ## アプリケーションの実行
 
@@ -52,7 +59,7 @@ VS Code用のIBM Blockchain Platform Extensionを使用して以下を行いま�
 
 ### ステップ
 
-> ローカルネットワークで実行する場合は [こちら](./docs/run-local.md) を参照して下さい。
+> ローカルネットワークで実行する場合は [こちら](./run-local.md) を参照して下さい。
 
 1. [リポジトリのクローン](#1-リポジトリのクローン)
 2. [スマートコントラクトのパッケージ](#2-スマートコントラクトのパッケージ)
@@ -77,7 +84,7 @@ cd fabcar-blockchain-sample
 IBM Blockchain Platform拡張機能を使用して、Fabcarスマートコントラクトをパッケージ化します。
 * 事前にクローンしたリポジトリ内の `contract` フォルダーを、Visual Studio Codeで開きます。
 
-* 異なるVS Code オプションを表示するには、 `F1`キーを押します。 `IBM Blockchain Platform: Package a Smart Contract Project` を選択します。
+* 異なるVS Code オプションを表示するには、 `F1`キーを押します。 `IBM Blockchain Platform: Package Open Project` を選択します。
 
 * 左側の `IBM Blockchain Platform` 拡張ボタンをクリックします。 これにより、パッケージ化されたコントラクトが上部に、ブロックチェーン接続が下部に表示されます。
 
@@ -352,8 +359,8 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
   - [config.json]（web-app / server / config.json）ファイルを次のように更新します。
     - ダウンロードした接続jsonファイル名。
     - アプリ管理者の<b> enroll id </b>および<b> enroll secret </b>。以前に`app-admin`および`app-adminpw`として提供しました。
-    - `org1msp`として提供したorgMSP ID。
-    - `organizations`->`org1msp`-> certificateAuthoritiesの下の接続jsonファイルにあるcaName。これはIPアドレスとポートのようなものです。
+    - `Org1MSP`として提供したorgMSP ID。
+    - `organizations`->`Org1MSP`-> certificateAuthoritiesの下の接続jsonファイルにあるcaName。これはIPアドレスとポートのようなものです。
     - 登録するユーザー名。
     - IBPに接続するために、ゲートウェイ検出を `{enabled：true、asLocalhost：false}`に更新します。
 
@@ -364,7 +371,7 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
     "connection_file": "mychannel_fabcar_profile.json",
     "appAdmin": "app-admin",
     "appAdminSecret": "app-adminpw",
-    "orgMSPID": "org1msp",
+    "orgMSPID": "Org1MSP",
     "caName": "169.46.208.151:30404",
     "userName": "user1",
     "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
@@ -424,7 +431,7 @@ http://localhost:4200/ にアクセスし、実行されているアプリを確
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/application-UI.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/73296572-fc9ad100-41d7-11ea-9c55-f378741b56b4.gif">
 </p>
 <br>
 
@@ -432,21 +439,25 @@ IBM Blockchain Platformコンソールにアクセスしてユーザーを監視
 
 <br>
 <p align="center">
-  <img src="docs/doc-gifs/channel-blocks.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/73297271-3fa97400-41d9-11ea-825d-a2943e6ca929.gif">
 </p>
 <br>
 
 
 ## トラブルシューティング
+
 * If you encounter an error ``discover error: access denied``, you need to set the `gatewayDiscovery` properly in your `config.json` file. This is <b>REQUIRED</b>  You must set it as follows to connect to IBP:
 
                  `"gatewayDiscovery": {"enabled": true, "asLocalhost": false }`
+
 
 ## リンク
 * [Hyperledger Fabric Docs](http://hyperledger-fabric.readthedocs.io/en/latest/)
 * [IBM Code Patterns for Blockchain](https://developer.ibm.com/patterns/category/blockchain/)
 
+
 ## ライセンス（英語）
+
 This code pattern is licensed under the Apache Software License, Version 2. Separate third-party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 [Apache Software License (ASL) FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
