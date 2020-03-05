@@ -268,6 +268,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 <br>
 
 
+
 #### Create an orderer
   
   - Navigate to the <b>Nodes</b> tab in the left navigation and click <b>Add ordering service</b>.
@@ -276,6 +277,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
   - On the next screen, select `Orderer CA` as the <b>Certificate Authority</b>. Then, give the <b>Ordering service enroll ID</b> and <b>Ordering service enroll secret</b> for the peer identity that you created for your orderer, that is, `orderer1`, and `orderer1pw`. Select the <b>Organization MSP</b> as `OrdererMSP`, from the drop-down list. Leave the <b>TLS CSR hostname</b> blank. Click <b>Next</b>.
   - The next step is to Associate an identity with this peer to make it the admin of your peer. Select your peer admin identity `Orderer Admin` and click <b>Next</b>.
   - Review the summary and click <b>Add ordering service</b>.
+
 
 <br>
 <p align="center">
