@@ -229,7 +229,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 <br>
 
 * #### Create an orderer
-  - On the <b>Nodes</b> page, click <b>Add orderering service</b>.
+  - On the <b>Nodes</b> page, click <b>Add ordering service</b>.
   - Click <b>IBM Cloud</b> and proceed with <b>Next</b>.
   - Give your peer a <b>Display name</b> of `Orderer`.
   - On the next screen, select `Orderer CA` as your <b>Certificate Authority</b>. Then, give the <b>Enroll ID</b> and <b>Enroll secret</b> for the peer identity that you created for your orderer, `orderer1`, and `orderer1pw`. Then, select the <b>Administrator Certificate (from MSP)</b>, `Orderer MSP`, from the drop-down list and click <b>Next</b>.
