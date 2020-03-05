@@ -28,9 +28,6 @@
 
 
 ## 必要なコンポーネント
-*	[IBM Blockchain Platform](https://console.bluemix.net/docs/services/blockchain/howto/ibp-v2-deploy-iks.html#ibp-v2-deploy-iks) 
-*	[IBM Cloud Kubernetes Service](https://www.ibm.com/cloud/container-service) 
-* [IBM Blockchain Platform Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform)
 
 *	[IBM Blockchain Platform](https://www.ibm.com/cloud/blockchain-platform) は、デプロイ手順を簡素化および加速できるユーザーインターフェイスを使用して、ブロックチェーンネットワークを完全に制御できます。また、IBM Cloud Kubernetes Serviceでブロックチェーンコンポーネントを管理します。
 *	[IBM Cloud Kubernetes Service](https://www.ibm.com/cloud/container-service) は、コンピュートホストのクラスターを作成し、高可用性コンテナーを展開します。 Kubernetesクラスターを使用すると、アプリケーションを迅速にデプロイ、更新、スケーリングするために必要なリソースを安全に管理できます。
@@ -38,16 +35,19 @@
 
 
 ## 利用技術
+
 + [Hyperledger Fabric v1.4](https://hyperledger-fabric.readthedocs.io/en/release-1.4/) は、高度な機密性、弾力性、柔軟性、およびスケーラビリティを提供するモジュール式アーキテクチャに支えられた分散型台帳ソリューションのプラットフォームです。
 + [Node.js](https://nodejs.org/en/) は、サーバー側のJavaScriptコードを実行するオープンソースのクロスプラットフォームJavaScriptランタイム環境です。
 + [Express.js](https://expressjs.com/) は、Webおよびモバイルアプリケーションに堅牢な機能セットを提供する、最小限で柔軟なNode.js Webアプリケーションフレームワークです。
 + [Angular.io](https://angular.io/) これは、Webアプリケーションを構築するためのフロントエンドフレームワークです。
 
 ## 事前準備
+
 - [IBM Cloud account](https://cloud.ibm.com/registration/?target=%2Fdashboard%2Fapps)
-- [Node v10.x and npm v6.x or greater](https://nodejs.org/en/download/)
-- [VSCode version 1.26 or greater](https://code.visualstudio.com)
+- [Node v8.x or v10.x and npm v6.x or greater](https://nodejs.org/en/download/)
+- [VSCode version 1.38.0 or greater](https://code.visualstudio.com)
 - [IBM Blockchain Platform Extension for VSCode](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform)
+
 
 ## アプリケーションの実行
 
@@ -55,7 +55,7 @@
 
 ## ステップ
 
-> ローカルネットワークで実行する場合は [こちら](./docs/run-local.md) を参照して下さい。
+> ローカルネットワークで実行する場合は [こちら](./run-local.md) を参照して下さい。
 
 1. [リポジトリのクローン](#1-リポジトリのクローン)
 2. [スマートコントラクトのパッケージ](#2-スマートコントラクトのパッケージ)
@@ -129,11 +129,6 @@ IBM Blockchain Platform拡張機能を使用して、Fabcarスマートコント
 
 * ブロックチェーンプラットフォームがKubernetesクラスターにデプロイされると、コンソールを起動してブロックチェーンネットワークでの運用を開始できます。
 
-<br>
-<p align="center">
-  <img src="docs/doc-gifs/launch-ibm-blockchain.gif">
-</p>
-<br>
 
 ### 4. ネットワークのビルド
 
@@ -298,10 +293,10 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
   - <b>チャネルの作成</b>をクリックします。
   - チャネル名に `mychannel` を設定します。
   - 作成した順序付けサービス `Orderer` を順序付けサービスリストから選択します。
-  - 組織セクションで、組織の下のチャネルメンバー `Org1 MSP (org1msp)` を選択します。
-  - ドロップダウンリストからチャネル作成者の組織を識別するMSPを選択します。 これは `Org1 MSP (org1msp)` である必要があります。
+  - 組織セクションで、組織の下のチャネルメンバー `Org1 MSP (Org1MSP)` を選択します。
+  - ドロップダウンリストからチャネル作成者の組織を識別するMSPを選択します。 これは `Org1 MSP (Org1MSP)` である必要があります。
   - 組織の横にある<b>追加</b>をクリックします。 組織を<b>Operator</b>にします。
-  - チャネル作成者の組織セクションで、<b>チャネル作成者の MSP</b>に`Org1 MSP (org1msp)` を、<b>アイデンティティ</b>に `Org1 Admin` を選択します。
+  - チャネル作成者の組織セクションで、<b>チャネル作成者の MSP</b>に`Org1 MSP (Org1MSP)` を、<b>アイデンティティ</b>に `Org1 Admin` を選択します。
   - <b>チャネルの作成</b>をクリックします。
 
 <br>
@@ -313,7 +308,7 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
 
 #### ピアをチャネルへ参加させます
   - 作成した<b>mychannel</b>のタイルをクリックして、サイドパネルを起動します。
-  - `Peer Org1(org1msp)` を選択して、 `チャネルへの結合` をクリックします。
+  - `Peer Org1(Org1MSP)` を選択して、 `チャネルへの結合` をクリックします。
 
 <br>
 <p align="center">
@@ -339,7 +334,7 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
 #### スマートコントラクトをインスタンス化します
   - スマートコントラクトタブで、ピアにインストールされているリストからスマートコントラクトを見つけ、行の右側のオーバーフローメニューから<b>インスタンス化</b>をクリックします。
   - 開いたサイドパネルで、スマートコントラクトをインスタンス化するチャネル `mychannel` を選択します。<b>次へ</b>をクリックします。
-  - ポリシーに、組織メンバー `org1msp` を選択します。 <b>次へ</b>を2回クリックします。
+  - ポリシーに、組織メンバー `Org1MSP` を選択します。 <b>次へ</b>を2回クリックします。
   - <b>機能名</b>に `initLedger` を指定し、<b>引数</b>を空白のままにします。
   -　<b>スマートコントラクトのインスタンス化</b>をクリックします。
 
@@ -354,7 +349,7 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
 
 #### 接続プロファイルを介してSDKに接続します
   - <b>インスタンス化されたスマート・コントラクト</b>の下で、リストで「fabcar」コントラクトを見つけます。 行の右側のオーバーフローメニューから `SDKを使用した接続` をクリックします。
-  - <b>接続用のMSP</b>のドロップダウンから`org1msp`を選択します。
+  - <b>接続用のMSP</b>のドロップダウンから`Org1MSP`を選択します。
   - <b>認証局</b>ドロップダウンから `Org1 CA` を選択します。
   - 下にスクロールして<b>接続プロファイルのダウンロード</b>をクリックして、接続プロファイルをダウンロードします。これにより、Node.js WebアプリケーションとBlockchain Network間の接続を確立するために使用する接続JSONがダウンロードされます。
   - ダウンロードが完了したら、<b>閉じる</b>をクリックします。
@@ -385,7 +380,7 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
   - [config.json](web-app/server/config.json)ファイルを次のように更新します。
     - ダウンロードした接続jsonファイル名。
     - アプリ管理者の<b>enroll id</b>および<b>enroll secret</b>。事前に`app-admin`および`app-adminpw`として作成しました。
-    - `org1msp`として提供したorgMSP ID。
+    - `Org1MSP`として提供したorgMSP ID。
     - `organizations`->`Org1MSP`-> certificateAuthoritiesの下の接続jsonファイルにあるcaName。これはIPアドレスとポートのようなものです。
     - 登録するユーザー名。
     - IBM Blockchain Platformに接続するために、ゲートウェイ検出を `{enabled：true、asLocalhost：false}`に更新。
@@ -397,7 +392,7 @@ IBM Blockchain Platformが提供するネットワークを構築します [ド�
     "connection_file": "mychannel_fabcar_profile.json",
     "appAdmin": "app-admin",
     "appAdminSecret": "app-adminpw",
-    "orgMSPID": "org1msp",
+    "orgMSPID": "Org1MSP",
     "caName": "169.46.208.151:30404",
     "userName": "user1",
     "gatewayDiscovery": { "enabled": true, "asLocalhost": false }
@@ -471,15 +466,19 @@ IBM Blockchain Platformコンソールにアクセスしてユーザーを監視
 
 
 ## トラブルシューティング
+
 * If you encounter an error ``discover error: access denied``, you need to set the `gatewayDiscovery` properly in your `config.json` file. This is <b>REQUIRED</b>  You must set it as follows to connect to IBP:
 
                  `"gatewayDiscovery": {"enabled": true, "asLocalhost": false }`
+
 
 ## リンク
 * [Hyperledger Fabric Docs](http://hyperledger-fabric.readthedocs.io/en/latest/)
 * [IBM Code Patterns for Blockchain](https://developer.ibm.com/patterns/category/blockchain/)
 
+
 ## ライセンス（英語）
+
 This code pattern is licensed under the Apache Software License, Version 2. Separate third-party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
 [Apache Software License (ASL) FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)

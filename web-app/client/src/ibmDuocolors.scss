@@ -1,4 +1,4 @@
-// SCSS Color Palette Variables
+/* SCSS Color Palette Variables */
 $ibm-color__black-100: #000000;
 $ibm-color__blue-10: #EDF4FF;
 $ibm-color__blue-20: #C9DEFF;
@@ -346,8 +346,8 @@ $ibm-color-map: (
     --ibm-color__yellow-20: #FDD13A;
   }
 }
-// do not include CSS variables by default
-// exclude if $ibm-colors__include-css-variables is false
+/* do not include CSS variables by default */
+/* exclude if $ibm-colors__include-css-variables is false */
 $ibm-colors__include-css-variables: false !default;
 @if ($ibm-colors__include-css-variables == true) {
   @include ibm-color__css-variables;
