@@ -1,9 +1,9 @@
 {
-    "connection_file": "connection.json",
+    "connection_file": "1 Org Local Fabric - Org1_connection.json",
     "appAdmin": "app-admin",
     "appAdminSecret": "app-adminpw",
     "orgMSPID": "Org1MSP",
-    "caName": "ca.org1.example.com",
+    "caName": "Org1CA",
     "userName": "user1",
     "gatewayDiscovery": { "enabled": true, "asLocalhost": true }
 }

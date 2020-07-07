@@ -15,7 +15,7 @@
     "express": "^4.17.1",
     "fabric-ca-client": "~1.4.5",
     "fabric-network": "~1.4.5",
-    "handlebars": "4.7.2",
+    "handlebars": "^4.7.6",
     "morgan": "^1.9.1",
     "nodemon": "^2.0.2",
     "tar": ">=5.0.5"
