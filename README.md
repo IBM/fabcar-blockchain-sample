@@ -317,7 +317,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 
 #### Join your peer to the channel
-  - Click on the newly crated channel <b>mychannel</b>.
+  - Click on the newly created channel <b>mychannel</b>.
   - In the side panel that opens, under <b>Choose from available peers</b>, select `Peer Org1`. Once the peer is selected, a check mark will be displayed next to it. Ensure that <b>Make anchor peer(s)</b> is marked as `Yes`. Click <b>Join channel</b>.
 
 <br>
