@@ -8,6 +8,8 @@
 
 >Hyperledger Fabric sample Fabcar on IBM Blockchain Platform
 
+> **NOTE**: This developer pattern creates a blockchain network on *IBM Blockchain Platform version **2.5*** using the *Hyperledger Fabric version **1.4***.
+
 This code pattern demonstrates setting up a network on the IBM Blockchain Platform and deploying the Fabcar smart contract on the network.  Next, we setup our application to interact with the network including identities to submit transactions on the smart contract.  The application is setup with a Node.js server using the Fabric Node SDK to process requests to the network, and an Angular client to bring up a web interface.
 
  When the reader has completed this code pattern, they will understand how to:
@@ -49,7 +51,7 @@ This code pattern demonstrates setting up a network on the IBM Blockchain Platfo
 ## Prerequisites
 
 - [IBM Cloud account](https://cloud.ibm.com/registration/?target=%2Fdashboard%2Fapps)
-- [Node v8.x or v10.x and npm v6.x or greater](https://nodejs.org/en/download/)
+- [Node v10.x and npm v6.x or greater](https://nodejs.org/en/download/)
 - [VSCode version 1.38.0 or greater](https://code.visualstudio.com)
 - [IBM Blockchain Platform Extension for VSCode](https://marketplace.visualstudio.com/items?itemName=IBMBlockchain.ibm-blockchain-platform)
 
@@ -91,7 +93,7 @@ We will use the IBM Blockchain Platform extension on VS Code to package the Fabc
 * Press the `F1` key to see the different VS code options. Choose `IBM Blockchain Platform: Package Open Project`.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/71910509-05036d00-3140-11ea-8b15-7c8aeb403974.png">
+  <img src="https://user-images.githubusercontent.com/8854447/85969156-de0e5100-b994-11ea-8764-a4ad5dcb3f01.png">
 </p>
 
 * Click the `IBM Blockchain Platform` extension button on the left. This will show the packaged contracts on top and the blockchain connections on the bottom.
@@ -142,15 +144,14 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 
 #### Create your peer organization CA
-  - Navigate to the <b>Nodes</b> tab in the left navigation and click <b>Add Certificate Authority</b>.
-  - Click <b>Create an IBM Cloud Certificate Authority</b> and <b>Next</b>.
-  - Give it a <b>CA display name</b> of `Org1 CA` and click <b>Next</b>.
-  - Specify an <b>CA Administrator Enroll ID</b> of `admin` and <b>CA Administrator Enroll Secret</b> of `adminpw`, then click <b>Next</b>.
+  - Navigate to the <b>Nodes</b> tab in the left navigation and click <b>Add Certificate Authority +</b>.
+  - Click <b>Create a Certificate Authority +</b> and click <b>Next</b>.
+  - Give it a <b>CA display name</b> of `Org1 CA`, a <b>CA administrator enroll ID</b> of `admin` and a <b>CA administrator enroll secret</b> of `adminpw`, then click <b>Next</b>.
   - Review the summary and click <b>Add Certificate Authority</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/71913565-bb1d8580-3145-11ea-9eaa-1b4e8a10e985.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/85798060-cf146e00-b70a-11ea-856b-ef3264428fbc.gif">
 </p>
 <br>
 
@@ -158,70 +159,70 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 #### Associate the peer organization CA admin identity
   - In the Nodes tab, select the <b>Org1 CA</b> once it is running (indicated by the green box in the tile).
   - Click <b>Associate identity</b> on the CA overview panel.
-  - On the side panel, select <b>Enroll ID</b>. 
-  - Provide an <b>Enroll ID</b> of `admin` and an <b>Enroll secret</b> of `adminpw`. Use the default value of `Org1 CA Identity` for the <b>Identity display name</b>.
-  - Click <b>Associate identity</b> to add the identity into your wallet and associate the admin identity with the <b>Org1 CA</b>.
+  - On the side panel, select the <b>Enroll ID</b> tab. 
+  - Provide an <b>Enroll ID</b> of `admin` and an <b>Enroll secret</b> of `adminpw`. Use the default value of `Org1 CA Admin` for the <b>Identity display name</b>.
+  - Click <b>Associate identity</b> to associate the `admin` identity with the <b>Org1 CA</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/71913744-1e0f1c80-3146-11ea-85e4-eea5280aa8e9.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/85799219-dfc5e380-b70c-11ea-80a6-afccb0e526fc.gif">
 </p>
 <br>
 
 
 #### Use peer organization CA to register the peer and org1 admin identities
   - Select the <b>Org1 CA</b> Certificate Authority and ensure the `admin` identity that was created for the CA is visible in the table.
-  - We will register an admin for our organization "org1". Click on the <b>Register User</b> button. Give an <b>Enroll ID</b> of `org1admin`, and <b>Enroll Secret</b> of `org1adminpw`. Set the <b>Type</b> for this identity as `admin`. We can specify to <b>Use root affiliation</b> or uncheck this field and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> field blank. Click <b>Next</b>.
-  - We will not be adding any attributes to this user. Click <b>Register user</b>.
-  - We will repeat the process to create an identity of the peer. Click on the <b>Register User</b> button. Give an <b>Enroll ID</b> of `peer1`, and <b>Enroll Secret</b> of `peer1pw`. Set the <b>Type</b> for this identity as `peer`. We can specify to <b>Use root affiliation</b> or uncheck this field and select from any of the affiliated organizations from the drop-down list. Click <b>Next</b>.
-  - We will not be adding any attributes to this user. Click <b>Register user</b>.
+  - The next step is to register an admin for the organization "Org1". Click on the <b>Register User +</b> button. Give an <b>Enroll ID</b> of `org1admin` and an <b>Enroll secret</b> of `org1adminpw`. Set the <b>Type</b> for this identity as `admin`. Specify to <b>Use root affiliation</b>. Leave the <b>Maximum enrollments</b> field blank. Click <b>Next</b>.
+  - Skip the section to add attributes to this user and click <b>Register user</b>.
+  - Repeat the process to create an identity of the peer. Click on the <b>Register User +</b> button. Give an <b>Enroll ID</b> of `peer1` and an <b>Enroll secret</b> of `peer1pw`. Set the <b>Type</b> for this identity as `peer`. Specify to <b>Use root affiliation</b>. Leave the <b>Maximum enrollments</b> field blank. Click <b>Next</b>.
+  - Skip the section to add attributes to this user and click <b>Register user</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/71913929-7c3bff80-3146-11ea-9930-a455f1e45fe2.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/85800394-e35a6a00-b70e-11ea-967a-f37334a685a3.gif">
 </p>
 <br>
 
 
 #### Create the peer organization MSP definition
-  - Navigate to the <b>Organizations</b> tab in the left navigation and click <b>Create MSP definition</b>.
-  - Enter the <b>MSP Display name</b> as `Org1MSP` and an <b>MSP ID</b> of `Org1MSP`.
-  - Under <b>Root Certificate Authority</b> details, specify the peer CA that we created `Org1 CA` as the root CA for the organization.
-  - Give the <b>Enroll ID</b> and <b>Enroll secret</b> for your organization admin, `org1admin` and `org1adminpw`. Then, give the Identity name as `Org1 Admin`.
-  - Click the <b>Generate</b> button to enroll this identity as the admin of your organization and export the identity to the wallet. Click <b>Export</b> to export the admin certificates to your file system. Finally click <b>Create MSP definition</b>.
+  - Navigate to the <b>Organizations</b> tab in the left navigation and click <b>Create MSP definition +</b>.
+  - Enter the <b>MSP display name</b> as `Org1MSP` and the <b>MSP ID</b> as `Org1MSP`. Click <b>Next</b>.
+  - Specify `Org1 CA` as the <b>Root Certificate Authority</b>. Click <b>Next</b>.
+  - Select the <b>New identity</b> tab. Give the <b>Enroll ID</b> and <b>Enroll secret</b> for your organization admin, i.e. `org1admin` and `org1adminpw` respectively. Then, give the <b>Identity name</b> as `Org1 Admin`.
+  - Click the <b>Generate</b> button to enroll this identity as the admin of your organization and add the identity to the wallet. Click <b>Export</b> to export the admin certificates to your file system. Click <b>Next</b>.
+  - Review all the information and click <b>Create MSP definition</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/71914115-e5bc0e00-3146-11ea-891c-6422bc4c2c4e.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/85800904-cbcfb100-b70f-11ea-9b95-376d9ef72caa.gif">
 </p>
 <br>
 
 
 #### Create a peer
-  - Navigate to the <b>Nodes</b> tab in the left navigation and click <b>Add peer</b>.
-  - Click <b>Create an IBM Cloud peer</b> and then click <b>Next</b>.
+  - Navigate to the <b>Nodes</b> tab in the left navigation and click <b>Add peer +</b>.
+  - Click <b>Create a peer +</b> and then click <b>Next</b>.
   - Give the <b>Peer display name</b> as `Peer Org1` and click <b>Next</b>.
-  - On the next screen, select `Org1 CA` as the <b>Certificate Authority</b>. Then, give the <b>Peer enroll ID</b> and <b>Peer enroll secret</b> for the peer identity that you created for your peer, that is, `peer1`, and `peer1pw`. Select the <b>Organization MSP</b> as `Org1MSP`, from the drop-down list. Leave the <b>TLS CSR hostname</b> blank. Click <b>Next</b>.
-  - The next step is to Associate an identity with this peer to make it the admin of your peer. Select your peer admin identity `Org1 Admin` and click <b>Next</b>.
+  - On the next screen, select `Org1 CA` as the <b>Certificate Authority</b>. Then, give the <b>Peer enroll ID</b> and <b>Peer enroll secret</b> as `peer1` and `peer1pw` respectively. Select the <b>Organization MSP</b> as `Org1MSP`. Leave the <b>TLS CSR hostname</b> blank and select the highest value available in the drop-down for <b>Fabric version</b>, i.e. `2.1.1-0`. Click <b>Next</b>.
+  - Provide `Org1 Admin` as the <b>Peer administrator identity</b> and click <b>Next</b>.
   - Review the summary and click <b>Add peer</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/71914297-53683a00-3147-11ea-9ecb-bace14e5e5c5.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/85802117-41d51780-b712-11ea-80b1-06710ec3207d.gif">
 </p>
 <br>
 
 
 #### Create your orderer organization CA
-  - Navigate to the <b>Nodes</b> tab in the left navigation and click <b>Add Certificate Authority</b>.
-  - Click <b>Create an IBM Cloud Certificate Authority</b> and <b>Next</b>.
-  - Give it a <b>CA display name</b> of `Orderer CA` and click <b>Next</b>.
-  - Specify an <b>CA Administrator Enroll ID</b> of `admin` and <b>CA Administrator Enroll Secret</b> of `adminpw`, then click <b>Next</b>.
+  - Navigate to the <b>Nodes</b> tab in the left navigation and click <b>Add Certificate Authority +</b>.
+  - Click <b>Create a Certificate Authority +</b> and click <b>Next</b>.
+  - Give it a <b>CA display name</b> of `Orderer CA`, a <b>CA administrator enroll ID</b> of `admin` and a <b>CA administrator enroll secret</b> of `adminpw`, then click <b>Next</b>.
   - Review the summary and click <b>Add Certificate Authority</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/71914392-86123280-3147-11ea-9a6f-b6eddab790b1.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/85802348-c4f66d80-b712-11ea-801b-9f2fbbb66593.gif">
 </p>
 <br>
 
@@ -229,101 +230,99 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 #### Associate the orderer organization CA admin identity
   - In the Nodes tab, select the <b>Orderer CA</b> once it is running (indicated by the green box in the tile).
   - Click <b>Associate identity</b> on the CA overview panel.
-  - On the side panel, select <b>Enroll ID</b>. 
-  - Provide an <b>Enroll ID</b> of `admin` and an <b>Enroll secret</b> of `adminpw`. Use the default value of `Orderer CA Identity` for the <b>Identity display name</b>.
-  - Click <b>Associate identity</b> to add the identity into your wallet and associate the admin identity with the <b>Orderer CA</b>.
+  - On the side panel, select the <b>Enroll ID</b> tab. 
+  - Provide an <b>Enroll ID</b> of `admin` and an <b>Enroll secret</b> of `adminpw`. Use the default value of `Orderer CA Admin` for the <b>Identity display name</b>.
+  - Click <b>Associate identity</b> to associate the `admin` identity with the <b>Orderer CA</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/71914593-e73a0600-3147-11ea-8944-1c5e2bbecfba.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/85802898-e2780700-b713-11ea-82c7-9ffc09686f0b.gif">
 </p>
 <br>
 
 
 #### Use orderer organization CA to register orderer and orderer admin identities
   - Select the <b>Orderer CA</b> Certificate Authority and ensure the `admin` identity that was created for the CA is visible in the table.
-  - We will register an admin for the "orderer" organization. Click on the <b>Register User</b> button. Give an <b>Enroll ID</b> of `ordereradmin`, and <b>Enroll Secret</b> of `ordereradminpw`. Set the <b>Type</b> for this identity as `admin`. We can specify to <b>Use root affiliation</b> or uncheck this field and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> field blank. Click <b>Next</b>.
-  - We will not be adding any attributes to this user. Click <b>Register user</b>.
-  - We will repeat the process to create an identity of the orderer. Click on the <b>Register User</b> button. Give an <b>Enroll ID</b> of `orderer1`, and <b>Enroll Secret</b> of `orderer1pw`. Set the <b>Type</b> for this identity as `orderer`. We can specify to <b>Use root affiliation</b> or uncheck this field and select from any of the affiliated organizations from the drop-down list. Click <b>Next</b>.
-  - We will not be adding any attributes to this user. Click <b>Register user</b>.
+  - The next step is to register an admin for the organization "Orderer". Click on the <b>Register User +</b> button. Give an <b>Enroll ID</b> of `ordereradmin` and an <b>Enroll secret</b> of `ordereradminpw`. Set the <b>Type</b> for this identity as `admin`. Specify to <b>Use root affiliation</b>. Leave the <b>Maximum enrollments</b> field blank. Click <b>Next</b>.
+  - Skip the section to add attributes to this user and click <b>Register user</b>.
+  - Repeat the process to create an identity of the orderer. Click on the <b>Register User +</b> button. Give an <b>Enroll ID</b> of `orderer` and an <b>Enroll secret</b> of `ordererpw`. Set the <b>Type</b> for this identity as `orderer`. Specify to <b>Use root affiliation</b>. Leave the <b>Maximum enrollments</b> field blank. Click <b>Next</b>.
+  - Skip the section to add attributes to this user and click <b>Register user</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/71914721-35e7a000-3148-11ea-8db6-2d3584fca238.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/85803027-4995bb80-b714-11ea-81c7-b4b4cb2ec49d.gif">
 </p>
 <br>
 
 
 #### Create the orderer organization MSP definition
-  - Navigate to the <b>Organizations</b> tab in the left navigation and click <b>Create MSP definition</b>.
-  - Enter the <b>MSP Display name</b> as `OrdererMSP` and an <b>MSP ID</b> of `OrdererMSP`.
-  - Under <b>Root Certificate Authority</b> details, specify the peer CA that we created `Orderer CA` as the root CA for the organization.
-  - Give the <b>Enroll ID</b> and <b>Enroll secret</b> for your organization admin, `ordereradmin` and `ordereradminpw`. Then, give the Identity name as `Orderer Admin`.
-  - Click the <b>Generate</b> button to enroll this identity as the admin of your organization and export the identity to the wallet. Click <b>Export</b> to export the admin certificates to your file system. Finally click <b>Create MSP definition</b>.
+  - Navigate to the <b>Organizations</b> tab in the left navigation and click <b>Create MSP definition +</b>.
+  - Enter the <b>MSP display name</b> as `OrdererMSP` and the <b>MSP ID</b> as `OrdererMSP`. Click <b>Next</b>.
+  - Specify `Orderer CA` as the <b>Root Certificate Authority</b>. Click <b>Next</b>.
+  - Select the <b>New identity</b> tab. Give the <b>Enroll ID</b> and <b>Enroll secret</b> for your organization admin, i.e. `ordereradmin` and `ordereradminpw` respectively. Then, give the <b>Identity name</b> as `Orderer Admin`.
+  - Click the <b>Generate</b> button to enroll this identity as the admin of your organization and add the identity to the wallet. Click <b>Export</b> to export the admin certificates to your file system. Click <b>Next</b>.
+  - Review all the information and click <b>Create MSP definition</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/71914893-95de4680-3148-11ea-8a9d-5952c26c8cdc.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/85803287-caed4e00-b714-11ea-94e7-305880e6ba63.gif">
 </p>
 <br>
 
 
 
 #### Create an orderer
-  
-  - Navigate to the <b>Nodes</b> tab in the left navigation and click <b>Add ordering service</b>.
-  - Click <b>Create an IBM Cloud Ordering service</b> and then click <b>Next</b>.
+  - Navigate to the <b>Nodes</b> tab in the left navigation and click <b>Add ordering service +</b>.
+  - Click <b>Create an ordering service +</b> and then click <b>Next</b>.
   - Give the <b>Ordering service display name</b> as `Orderer` and click <b>Next</b>.
-  - On the next screen, select `Orderer CA` as the <b>Certificate Authority</b>. Then, give the <b>Ordering service enroll ID</b> and <b>Ordering service enroll secret</b> for the peer identity that you created for your orderer, that is, `orderer1`, and `orderer1pw`. Select the <b>Organization MSP</b> as `OrdererMSP`, from the drop-down list. Leave the <b>TLS CSR hostname</b> blank. Click <b>Next</b>.
-  - The next step is to Associate an identity with this peer to make it the admin of your peer. Select your peer admin identity `Orderer Admin` and click <b>Next</b>.
+  - On the next screen, select `Orderer CA` as the <b>Certificate Authority</b>. Then, give the <b>Ordering service enroll ID</b> and <b>Ordering service enroll secret</b> as `orderer` and `ordererpw` respectively. Select the <b>Organization MSP</b> as `OrdererMSP`. Leave the <b>TLS CSR hostname</b> blank and select the highest value available in the drop-down for <b>Fabric version</b>, i.e. `2.1.1-0`. Click <b>Next</b>.
+  - Provide `Orderer Admin` as the <b>Orderer administrator identity</b> and click <b>Next</b>.
   - Review the summary and click <b>Add ordering service</b>.
 
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/71915205-42b8c380-3149-11ea-8050-5edfd461ae10.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/85803547-5ff04700-b715-11ea-934f-943ffe0439b0.gif">
 </p>
 <br>
 
 
 #### Add organization as Consortium Member on the orderer to transact
-  - Navigate to the <b>Nodes</b> tab, and click on the <b>Orderer</b> that we created.
-  - Under <b>Consortium Members</b>, click <b>Add organization</b>.
-  - From the drop-down list, select `Org1MSP`, as this is the MSP that represents the peer's organization "Org1".
+  - Navigate to the <b>Nodes</b> tab, and click on the <b>Orderer</b> that was created.
+  - Under <b>Consortium Members</b>, click <b>Add organization +</b>.
+  - Select the <b>Existing MSP ID</b> tab. From the drop-down list, select `Org1MSP (Org1MSP)`, as this is the MSP that represents the peer's organization "Org1".
   - Click <b>Add organization</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/71915342-88758c00-3149-11ea-98e2-2ed00dc9c8c3.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/85803823-105e4b00-b716-11ea-9ee3-28e0d30ffa95.gif">
 </p>
 <br>
 
 
 #### Create the channel
-  - Navigate to the <b>Channels</b> tab in the left navigation and click <b>Create channel</b>.
-  - Give the <b>Channel name</b> as `mychannel`.
-  - Select the orderer you created, `Orderer` from the <b>Ordering service</b> drop-down list.
-  - Under <b>Organizations</b>, select `Org1MSP (Org1MSP)` from the drop-down list to add the organization "Org1" as a member of this channel. Click <b>Add</b> button. Set the permissions for this member as <b>Operator</b>.
-  - Scroll down to the <b>Channel creator organization</b> section and select `Org1MSP (Org1MSP)` from the dropdown as the <b>Channel creator MSP</b> and select `Org1 Admin` from the dropdown under <b>Identity</b>.
-  - Click <b>Create channel</b>.
+  - Navigate to the <b>Channels</b> tab in the left navigation and click <b>Create channel +</b>.
+  - Click <b>Next</b>.
+  - Give the <b>Channel name</b> as `mychannel`. Select `Orderer` from the <b>Ordering service</b> drop-down list. Click <b>Next</b>.
+  - Under <b>Organizations</b>, select `Org1MSP (Org1MSP)` from the drop-down list to add the organization "Org1" as a member of this channel. Click the <b>Add</b> button. Set the permissions for this member as <b>Operator</b>. Click <b>Next</b>.
+  - Leave the <b>Policy</b> as the default value i.e. `1 out of 1`. Click <b>Next</b>.
+  - Select the <b>Channel creator MSP</b> as `Org1MSP (Org1MSP)` and the <b>Identity</b> as `Org1 Admin`. Click <b>Next</b>.
+  - Review the summary and click <b>Create channel</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/71915595-15b8e080-314a-11ea-9843-d7df9be30fe5.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/85804332-5a93fc00-b717-11ea-81e7-a4b6955575ee.gif">
 </p>
 <br>
 
 
 #### Join your peer to the channel
-  - Click <b>Join channel</b> to add a peer to the channel.
-  - Select your `Orderer` as the <b>Ordering service</b> and click <b>Next</b>.
-  - Enter the name of the <b>Channel</b> as `mychannel` and click <b>Next</b>.
-  - Next we need to select which peers should be added to the channel. In our case, we just want to add the peer we created under "Org1". Select `Peer Org1` .
-  - Click <b>Join channel</b>.
+  - Click on the newly created channel <b>mychannel</b>.
+  - In the side panel that opens, under <b>Choose from available peers</b>, select `Peer Org1`. Once the peer is selected, a check mark will be displayed next to it. Ensure that <b>Make anchor peer(s)</b> is marked as `Yes`. Click <b>Join channel</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/71915747-67fa0180-314a-11ea-984b-80deb0877d03.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/85804533-e60d8d00-b717-11ea-8066-64d66e4b4d33.gif">
 </p>
 <br>
 
@@ -331,28 +330,29 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 ### 5. Deploy FabCar Smart Contract on the network
 
 #### Install a smart contract
-  - Navigate to the <b>Smart contracts</b> tab in the left navigation and click <b>Install smart contract</b>.
-  - Browse to the location of the Blockchain for maintaining Digital Assets smart contract package file (it is probably named `fabcar@1.0.0.cds`), which we packaged earlier using the IBM Blockchain Platform extension for Visual Studio code.
-  - Click on <b>Add file</b> and find your packaged smart contract. 
+  - Navigate to the <b>Smart contracts</b> tab in the left navigation and click <b>Install smart contract +</b>.
+  - Click on <b>Add file</b>.
+  - Browse to the location of the Fabcar smart contract package file (it is probably named `fabcar@1.0.0.cds`), which we packaged earlier using the IBM Blockchain Platform extension for Visual Studio code.
   - Once the contract is uploaded, click <b>Install smart contract</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/73293647-42549b00-41d2-11ea-9e57-48ccb584ec94.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/86621220-d0a42880-bf8b-11ea-92b7-b67972796dc9.gif">
 </p>
 <br>
+
 
 #### Instantiate smart contract
   - Under <b>Installed smart contracts</b>, find the smart contract from the list (**Note: ours is called fabcar**) installed on our peer and click <b>Instantiate</b> from the overflow menu on the right side of the row.
   - On the side panel that opens, select the channel, `mychannel` on which to instantiate the smart contract. Click <b>Next</b>.
-  - Select the organization members to be included in the endorsement policy. In our case, we need to select `Org1MSP`. Click <b>Next</b>.
-  - We can skip the <b>Setup private data collection</b> step and simply click <b>Next</b>.
-  - Give <b>Function name</b> of `initLedger` and leave <b>Arguments</b> blank.
-  - Click <b>Instantiate</b>.
+  - Select `Org1MSP` as the organization member to be included in the endorsement policy. Click <b>Next</b>.
+  - Skip the <b>Setup private data collection</b> step and simply click <b>Next</b>.
+  - Provide the <b>Function name</b> as `initLedger` and leave the <b>Arguments</b> blank.
+  - Click <b>Instantiate smart contract</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/73294157-459c5680-41d3-11ea-848e-f7c70ea3fe64.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/86622766-735da680-bf8e-11ea-9b21-0e9c9eebcfef.gif">
 </p>
 <br>
 
@@ -360,29 +360,25 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 ### 6. Connect application to the network
 
 #### Connect with sdk through connection profile
-  - Scroll down to the <b>Instantiated smart contracts</b> section and find the "fabcar" contract in the list. Click on `Connect with SDK` from the overflow menu on the right side of the row.
-  - From the dropdown for <b>MSP for connection</b> choose `Org1MSP`.
-  - From the dropdown for <b>Certificate Authority</b> choose `Org1 CA`.
-  - Download the connection profile by scrolling down and clicking <b>Download Connection Profile</b>. This will download the connection json which we will use to establish a connection between the Node.js web application and the Blockchain Network.
-  - You can click <b>Close</b> once the download completes.
+  - Navigate to the <b>Organizations</b> tab in the left navigation, and click on <b>Org1MSP</b>.
+  - Click on <b>Download Connection Profile</b>. 
+  - In the side panel that opens up, select `Yes` as the response for <b>Include Org1 CA for user registration and enrollment?</b>. Under <b> Select peers to include</b>, select `Peer Org1`. Then click <b>Download connection profile</b>. This will download the connection json which we will use to establish a connection between the Node.js web application and the Blockchain Network.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/73294452-e1c65d80-41d3-11ea-930b-cf225f68e52d.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/86624377-334bf300-bf91-11ea-9438-80da5de5cfce.gif">
 </p>
 <br>
 
 
 #### Create an application admin
-  - Navigate to the <b>Nodes</b> tab in the left navigation, and under <b>Certificate Authorities</b>, choose your organization CA, <b>Org1 CA</b>.
-  - Click on <b>Register user</b>.
-  - Give an <b>Enroll ID</b> of `app-admin` and <b>Enroll Secret</b> of `app-adminpw`. Set the <b>Type</b> for this identity as `client`. We can specify to <b>Use root affiliation</b> or uncheck this field and select from any of the affiliated organizations from the drop-down list. We will leave the <b>Maximum enrollments</b> field blank. Click <b>Next</b>.
-  - Under <b>Attributes</b>, click on <b>Add attribute</b>. Give attribute as `hf.Registrar.Roles` = `*`. This will allow this identity to act as a registrar and issue identities for our app. Click <b>Add attribute</b>.
-  - Click <b>Register user</b>.
+  - Navigate to the <b>Nodes</b> tab in the left navigation, and under <b>Certificate Authorities</b>, choose <b>Org1 CA</b>.
+  - Click on the <b>Register User +</b> button. Give an <b>Enroll ID</b> of `app-admin` and an <b>Enroll secret</b> of `app-adminpw`. Set the <b>Type</b> for this identity as `client`. Specify to <b>Use root affiliation</b>. Leave the <b>Maximum enrollments</b> field blank. Click <b>Next</b>.
+  - Click on <b>Add attribute +</b>. Enter the <b>attribute name</b> as `hf.Registrar.Roles` and the <b>attribute value</b> as `*`. Click <b>Register user</b>.
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/72450922-25a77480-3789-11ea-9ce3-2319e7e11008.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/85872406-b0ab8280-b79d-11ea-80e8-632d2bd39285.gif">
 </p>
 <br>
 
@@ -400,9 +396,10 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 > <b>the current default contents of the config.json are to connect to a local fabric instance from VS Code.</b>
 
+After the updates, the contents of the config.json should look similar to the file shown below:
 ```
 {
-    "connection_file": "mychannel_fabcar_profile.json",
+    "connection_file": "Org1MSP_profile.json",
     "appAdmin": "app-admin",
     "appAdminSecret": "app-adminpw",
     "orgMSPID": "Org1MSP",
@@ -417,14 +414,14 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 #### Enroll admin
 
-  - First, navigate to the `web-app` directory, and install the node dependencies.
+  - First, navigate to the `web-app/server` directory, and install the node dependencies:
     
     ```bash
     cd web-app/server
     npm install
     ```
 
-  - Run the `enrollAdmin.js` script
+  - Run the `enrollAdmin.js` script:
     
     ```bash
     node enrollAdmin.js
@@ -439,7 +436,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 #### Register User
 
-  - Run the `registerUser.js` script.
+  - From the `server` directory, run the `registerUser.js` script:
     
     ```bash
     node registerUser.js
@@ -454,7 +451,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 #### Start the application server
 
-  - From the `server` directory, start the server.
+  - From the `server` directory, start the server:
 
     ```bash
     npm start
@@ -463,7 +460,7 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 
 #### Start the web client
 
-  - In a new terminal, open the web client folder and install the dependencies.
+  - In a new terminal, open the `web-app/client` directory and install the dependencies:
 
     ```bash
     cd web-app/client
@@ -488,7 +485,7 @@ You can go to the IBM Blockchain Platform console to monitor your users and get 
 
 <br>
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/8854447/73297271-3fa97400-41d9-11ea-825d-a2943e6ca929.gif">
+  <img src="https://user-images.githubusercontent.com/8854447/86625249-c6395d00-bf92-11ea-9d5b-93c036bc4870.gif">
 </p>
 <br>
 
@@ -498,6 +495,26 @@ You can go to the IBM Blockchain Platform console to monitor your users and get 
 * If you encounter an error ``discover error: access denied``, you need to set the `gatewayDiscovery` properly in your `config.json` file. This is <b>REQUIRED</b>  You must set it as follows to connect to IBP:
 
                  `"gatewayDiscovery": {"enabled": true, "asLocalhost": false }`
+
+* When running the *registerUser.js* script, if you get an error that says `Failed to register user user1: TypeError [ERR_INVALID_ARG_TYPE]: The "options.ca" property must be one of type string, Buffer, TypedArray, or DataView. Received type object` , you can get past this error by editing your connection profile that was downloaded from IBM Blockchain Platform. Open the connection profile and look for `tlsCACerts` under your certificateAuthority. If the `pem` value under `tlsCACerts` is of type array, remove the square brackets `[]` and convert it to a string. That is, if your connection profile is like the following image:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/8854447/86639850-a06a8300-bfa7-11ea-90a1-c82bdb5f88a2.png">
+</p>
+
+update it as shown in the image below:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/8854447/86640129-05be7400-bfa8-11ea-8e35-dc1165ffaaca.png">
+</p>
+
+* When running the *registerUser.js* script, if you get an error that says `Error: Calling register endpoint failed with error [Error: self signed certificate]`, you can get past this by adding `"httpOptions": {"verify": false}` to the certificateAuthorities section of the connection profile that was downloaded from IBM Blockchain Platform.
+
+<br>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/8854447/85960318-b2796f80-b970-11ea-9fcc-b8af15bf4b38.png">
+</p>
+<br>
 
 
 ## Links
