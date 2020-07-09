@@ -374,7 +374,8 @@ We will build a network as provided by the IBM Blockchain Platform [documentatio
 #### Create an application admin
   - Navigate to the <b>Nodes</b> tab in the left navigation, and under <b>Certificate Authorities</b>, choose <b>Org1 CA</b>.
   - Click on the <b>Register User +</b> button. Give an <b>Enroll ID</b> of `app-admin` and an <b>Enroll secret</b> of `app-adminpw`. Set the <b>Type</b> for this identity as `client`. Specify to <b>Use root affiliation</b>. Leave the <b>Maximum enrollments</b> field blank. Click <b>Next</b>.
-  - Click on <b>Add attribute +</b>. Enter the <b>attribute name</b> as `hf.Registrar.Roles` and the <b>attribute value</b> as `*`. Click <b>Register user</b>.
+  - Click on <b>Add attribute +</b>. Enter the <b>attribute name</b> as `hf.Registrar.Roles` and the <b>attribute value</b> as `*`. **NOTE: If you wish to use the deregisterUser.js script to remove/revoke/delete existing users, then you need to add another attribute `hf.Revoker` with the attribute value of `true` to your application admin.**
+  - Click <b>Register user</b>.
 
 <br>
 <p align="center">
@@ -448,6 +449,52 @@ After the updates, the contents of the config.json should look similar to the fi
     Successfully registered and enrolled admin user user1 and imported it into the wallet
     ```
 
+#### Deregister User
+
+**NOTE: The following steps need to be performed only if you wish to revoke an existing user.**
+
+By default, removal of identities is disabled in IBM Blockchain Platform. If you wish to remove identities, you need to manually override this default setting in the IBM Blockchain Platform console.
+
+  - On the console, go to the `Nodes` tab using the left hand navigation pane and click on your organization's CA.
+  - Click on the settings icon in the left side.
+  - In the pane that opens up on the right side, click on `Edit configuration JSON (Advanced)`.
+  - Paste the following into the input block for `Configuration updates`, then click `Update Certificate Authority`.
+  **NOTE: The value of 10 for passwordattempts is the default value. If your certificate authority was set up with a different number for passwordattempts then you need to use that number. You can find this value from the `Current configuration` section which is just above the `Configuration updates` section.**
+
+  ```json
+  {
+    "ca": {	
+      "cfg": {
+      "identities": {
+        "passwordattempts": 10,
+        "allowremove": true	
+        }
+      }
+    }
+  }
+  ```
+
+<br>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/8854447/87066593-d181c800-c1e0-11ea-8a57-6f0cf9fe11c8.gif">
+</p>
+<br>
+
+
+The removal of identities will now be enabled. As long as your application admin has been created with the `hf.Revoker` attribute set to the value of `true` (as specified in the [Create an application admin](#-create-an-application-admin) step above, you can use the `deregisterUser.js` script to remove the user identity.
+
+  - From the `server` directory, run the `deregisterUser.js` script. This script removes/revokes the user identified by `userName` specified in the [config.json](web-app/server/config.json) file.
+    
+    ```bash
+    node deregisterUser.js
+    ```
+
+  - You should see the following in the terminal:
+    
+    ```bash
+    Successfully deregistered the user user1 and deleted it from the wallet.
+    ```
+
 
 #### Start the application server
 
@@ -515,6 +562,10 @@ update it as shown in the image below:
   <img src="https://user-images.githubusercontent.com/8854447/85960318-b2796f80-b970-11ea-9fcc-b8af15bf4b38.png">
 </p>
 <br>
+
+* WHen running the *deregisterUser.js script, if you get an error that says `[[{"code":56,"message":"Identity removal is disabled"}]]`, this is because identity removal is disabled by default in IBM Blockchain Platform. You will have to enable it by updating the CA using the steps provided in the [Deregister User](#-deregister-user) section above.
+
+* When running the *deregisterUser.js* script, if you get an error that says `Failed to deregister user user1: Error: fabric-ca request revoke failed with errors [[{"code":71,"message":"Authorization failure"}]]`, this is because your application admin does not have the `hf.Revoker` attribute set to `true`. You will need to add a new application admin with this attribute, enroll the admin using the enroll.js script and then you should be able to run the deregisterUser.js script using this new application admin.
 
 
 ## Links
