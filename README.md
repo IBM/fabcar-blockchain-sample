@@ -498,6 +498,11 @@ The removal of identities will now be enabled. As long as your application admin
 
 #### Start the application server
 
+  - Ensure you have `nodemon` installed:
+
+    ```bash
+    npm i nodemon -S
+    ```
   - From the `server` directory, start the server:
 
     ```bash
