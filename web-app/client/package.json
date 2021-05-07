@@ -22,7 +22,7 @@
     "@angular/router": "^8.2.14",
     "core-js": "^3.6.4",
     "rxjs": "~6.5.4",
-    "handlebars": "4.7.2",
+    "handlebars": "4.7.7",
     "fstream": "1.0.12",
     "zone.js": "~0.10.2"
   },
